@@ -1,0 +1,12 @@
+* {
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 13px;
+letter-spacing: -5px;
+word-spacing: -6px;
+color: #000000;
+font-weight: 400;
+text-decoration: line-through solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: lowercase;
+}
