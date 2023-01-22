@@ -1,0 +1,23 @@
+@font-face {
+   font-family: arial;
+   src: url(Fonts/arial.ttf);
+}
+@font-face {
+   font-family: ArialBold;
+   src: url(Fonts/ArialBold.ttf;
+}
+@font-face {
+   font-family: mc;
+   src: url(Fonts/minecraft.ttf;
+}
+
+* {
+   font-family: arial;
+}
+h1 {
+	font-family: ArialBold;
+}
+.pagecontainer {display:none;}
+BoldText {
+	font-family: ArialBold;
+}
