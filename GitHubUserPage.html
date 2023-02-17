@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>GitHub user finder</title>
+<link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+<form>
+    <input id="text" type="text" placeholder="GitHub user name"/>
+    <input type="button" onclick="gitHubUserPage()" value="Go to the GitHub user page"/>
+</form>
+<script>
+    let user = document.getElementById("text")
+    function gitHubUserPage() {
+        (async () => {
+  const res = await fetch(`https://api.github.com/users/` + user.value);
+  const json = await res.json();
+  let userPage = json.html_url;
+  if (userPage) {
+    window.location = userPage
+  } else {
+    console.error('The user cannot be found')
+  }
+})();
+    }
+</script>
