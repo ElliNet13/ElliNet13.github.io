@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="errorTitle">Connection not secure</title>
+	<script src="https://kit.fontawesome.com/15d563bd08.js" crossorigin="anonymous"></script>
+	<style>
+	.box { position: relative; background: #c40f3f; }
+	</style>
+</head>
+<body>
+
+<div class="box">
+<h1 id="errorText">Your connection is not secure</h1>
+<i class="fa-solid fa-solid fa-triangle-exclamation fa-beat-fade fa-3x" style="--fa-beat-fade-opacity: 0.1; --fa-beat-fade-scale: 1.25;"></i>
+</div>
+<center><button onclick="Continue()"><i class="fa-solid fa-solid fa-triangle-exclamation fa-beat-fade fa-3x" style="--fa-beat-fade-opacity: 0.1; --fa-beat-fade-scale: 1.25;"></i>Continue<i class="fa-solid fa-solid fa-triangle-exclamation fa-beat-fade fa-3x" style="--fa-beat-fade-opacity: 0.1; --fa-beat-fade-scale: 1.25;"></i></button></center>
+<script>
+	function get_mark(var_name) {
+var objUrlParams = new URLSearchParams(window.location.search);
+try{
+var theVar = objUrlParams.get(var_name)
+} catch(err) {
+    return(null)
+}
+return(theVar);
+}
+function Continue() {
+	window.location = get_mark('url')
+}
+function setErrorTo(error) {
+document.getElementById('errorTitle').innerHTML = error
+document.getElementById('errorText').innerHTML = error
+}
+setErrorTo(get_mark('error'))
+</script>
+</body>
+</html>
