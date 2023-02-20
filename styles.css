@@ -21,10 +21,3 @@ h1 {
 BoldText {
 	font-family: ArialBold;
 }
-
-.Chat {
-opacity: 0.1;
-}
-.chat:hover {
-    opacity: 1;
-}
