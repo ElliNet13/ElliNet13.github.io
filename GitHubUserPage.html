@@ -19,4 +19,13 @@
   }
 })();
     }
+    function get_mark(var_name) {
+var objUrlParams = new URLSearchParams(window.location.search);
+try{
+var theVar = objUrlParams.get(var_name)
+} catch(err) {
+    return(null)
+}
+return(theVar);
+}
 </script>
