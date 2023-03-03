@@ -7,6 +7,10 @@
 </form>
 <script>
     let user = document.getElementById("text")
+    if (get_mark('user') == null == false) {
+      user.value = get_mark('user')
+      gitHubUserPage()
+    }
     function gitHubUserPage() {
         (async () => {
   const res = await fetch(`https://api.github.com/users/` + user.value);
