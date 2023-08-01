@@ -6,6 +6,17 @@
     <!-- Load the Google Sign-In API -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
+         // Function to handle the loading of the Google API Client Library
+        function onLoadCallback() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init({
+                    client_id: '350157329702-sq1odoqsf833aqt4ueu13jag49soj10a.apps.googleusercontent.com',
+                }).then(function () {
+                    // The Google API Client Library is loaded, now render the button.
+                    renderButton();
+                });
+            });
+        }
     function onSignIn(googleUser) {
         // This function is called when the user signs in successfully.
         var profile = googleUser.getBasicProfile();
@@ -41,7 +52,6 @@
             'onfailure': onFailure
         });
     }
- renderButton();
 </script>
 
 <br>
