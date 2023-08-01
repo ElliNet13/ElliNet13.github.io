@@ -9,16 +9,19 @@
     function onSignIn(googleUser) {
         // This function is called when the user signs in successfully.
         var profile = googleUser.getBasicProfile();
+    console.log(googleUser)
+     console.log(googleUser.getBasicProfile())
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log("Name: " + profile.getName());
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
 
         // You can handle the user data as you wish, for example, send it to your server for authentication and further processing.
-        var userEmail = profile.getId();
-      var userEmail = profile.getImageUrl();
-      var userEmail = profile.getName();
-        // Use the userEmail as needed, e.g., send it to your server or use it in your application.
+        var userId = profile.getId();
+      var userimage = profile.getImageUrl();
+      var userName = profile.getName();
+     var imageElement = document.getElementById("click");
+            imageElement.src = userimage;
     }
 
     function onFailure(error) {
@@ -43,7 +46,7 @@
 <br>
 <img onselectstart="return false" src="https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_2x1.jpg" width="40" height="40" onclick="history.back()"><br>
 <center>
-<img onclick="Click()" width="80" height="80" src="https://t3.ftcdn.net/jpg/00/78/37/68/360_F_78376843_DWf4xvIua3T0xZPKdmzUuVnpn9oEyTQ2.jpg" draggable="false" oncontextmenu="alert('No rclick!'); return false">
+<img id="click" onclick="Click()" width="80" height="80" src="" draggable="false" oncontextmenu="alert('No rclick!'); return false">
 <h3 id="Clicks">Clicks</h3>
 <button id="Button" onclick="upgrade()">Upgrade You need 150</button>
 </center>
