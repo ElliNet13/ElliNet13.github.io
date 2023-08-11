@@ -1,0 +1,20 @@
+var WshShell = new ActiveXObject("WScript.Shell");
+var audioFilePath = "C:\\path\\to\\your\\audio.mp3"; // Replace with the path to your audio file
+
+try {
+    // Play the audio file using the default audio player
+    var command = 'cmd /c start "" "' + audioFilePath + '"';
+    var process = WshShell.Exec(command);
+
+    WScript.Echo("Audio started playing.");
+
+    // Wait for the user to press Enter
+    WScript.StdIn.ReadLine();
+
+    // Terminate the audio player process
+    process.Terminate();
+
+    WScript.Echo("Playing neverr gonna give you up");
+} catch (error) {
+    WScript.Echo("Error: " + error.description);
+}
