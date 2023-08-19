@@ -37,6 +37,8 @@
     </div>
 
     <script>
+        let jsonData; // Define the jsonData variable in the outer scope
+
         // Function to perform a search
         function performSearch(query, jsonData) {
             const searchResults = document.getElementById('searchResults');
@@ -84,7 +86,7 @@
             .then(response => response.json())
             .then(data => {
                 // Store the fetched JSON data in the jsonData variable
-                const jsonData = data;
+                jsonData = data; // Assign the data to the outer jsonData variable
                 // Initial search with an empty query
                 performSearch('', jsonData);
             })
