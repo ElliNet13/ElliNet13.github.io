@@ -6,16 +6,35 @@
    font-family: ArialBold;
    src: url(Fonts/ArialBold.ttf;
 }
+	   @font-face {
+    font-family: 'Ellinet13sAwesomeFont';
+    src: url('/Fonts/Ellinet13sAwesomeFont-Regular.woff') format('woff');
+    /* You can also specify additional font formats (e.g., woff2) for broader compatibility */
+}
+
+/* Apply the font to specific elements or globally */
+body {
+    font-family: 'Ellinet13sAwesomeFont', sans-serif;
+    /* Use 'sans-serif' as a fallback in case the font is unavailable */
+}
+
+/* Apply the font to other elements as needed */
+h1, h2, h3 {
+    font-family: 'Ellinet13sAwesomeFont', sans-serif;
+}
+
+/* Adjust font size, color, and other styles as desired */
+
 @font-face {
    font-family: mc;
    src: url(Fonts/minecraft.ttf;
 }
 
 * {
-   font-family: arial;
+   font-family: 'Ellinet13sAwesomeFont', sans-serif;
 }
 h1 {
-	font-family: ArialBold;
+	font-family: 'Ellinet13sAwesomeFont', sans-serif;
 }
 .pagecontainer {display:none;}
 BoldText {
