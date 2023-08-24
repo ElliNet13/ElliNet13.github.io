@@ -1,0 +1,9 @@
+FTP:
+    name: Deploy to Dev 
+    runs-on: ubuntu-latest
+    environment: 
+      name: Infinityfree
+      url: ellinet13.github.io
+    steps:
+      - name: FTP
+        run: echo Uploading to FTP
