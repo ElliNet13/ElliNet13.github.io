@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hehe :)</title>
+</head>
+<body>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlOvd_JPg1bvisdK1yYAveeLrl_nKaFfwr5l-ut48&amp;s" width="40" height="40" onclick="history.back()"><br>
+<style>
+    .dot {
+      height: 50px;
+      width: 50px;
+      background-color: red;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      cursor: none;
+    }
+    </style>
+    <div id="m!" class="dot"><div class="nameFinder">
+      <h1 id="text">Loading…</h1>
+      <button onclick="document.cookie = 'name=;expires=' + new Date(0).toUTCString(); location.reload()">Change your name</button>
+      <script>
+          function name() {
+          setCookie('name', prompt('What is your name?'))
+          location.reload()
+      }
+      function setCookie(cname, cvalue) {
+          const d = new Date();
+          d.setTime(d.getTime() + (Infinity*24*60*60*1000));
+          let expires = "expires="+ d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+      function getCookie(cname) {
+          let name = cname + "=";
+          let decodedCookie = decodeURIComponent(document.cookie);
+          let ca = decodedCookie.split(';');
+          for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return null;
+        }
+      if (getCookie('name') == null) {
+          name()
+      } else {
+          document.getElementById("text").innerHTML = "Hi " + getCookie('name') + ' hehe HEHE HeHe hEhE :)'
+      }
+      </script>
+      </div></div>
+<script>
+  let circle = document.getElementById('m!');
+const onMouseMove = (e) =>{
+  circle.style.left = e.pageX + 'px';
+  circle.style.top = e.pageY + 'px';
+}
+document.addEventListener('mousemove', onMouseMove);
+</script>
+</html>
+</body>

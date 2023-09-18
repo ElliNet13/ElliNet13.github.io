@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<title>Corn Clicker!</title>
+<img onselectstart="return false" src="https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_2x1.jpg" width="40" height="40" onclick="history.back()"><br>
+<div class="nameFinder">
+    <h1 id="text">Loading…</h1>
+    <button onselectstart="return false" onclick="document.cookie = 'name=;expires=' + new Date(0).toUTCString(); location.reload()">Change your name</button>
+    <script>
+        function name() {
+        setCookie('name', prompt('What is your name?'))
+        location.reload()
+    }
+    function setCookie(cname, cvalue) {
+        const d = new Date();
+        d.setTime(d.getTime() + (Infinity*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return null;
+      }
+    if (getCookie('name') == null) {
+        name()
+    } else {
+        document.getElementById("text").innerHTML = "Hi " + getCookie('name') + ' click corn!'
+    }
+    </script>
+    </div>
+<center>
+<img onclick="Click()" width="80" height="80" src="https://t3.ftcdn.net/jpg/00/78/37/68/360_F_78376843_DWf4xvIua3T0xZPKdmzUuVnpn9oEyTQ2.jpg" draggable="false" oncontextmenu="alert('No rclick!'); return false">
+<h3 id="Clicks">Clicks</h3>
+<button id="Button" onclick="upgrade()">Upgrade You need 150</button>
+</center>
+<a href="javascript:dab()">Dab on pugs</a>
+<script>
+    var clicks = document.getElementById("Clicks")
+    var WOW = 0;    var ClickIt = 1; var need = 150; var rebirths = 0;
+    load()
+    updateButton(need)
+    clicks.innerHTML = 'Corn: ' + WOW;
+    function Click() {
+        WOW = WOW + ClickIt;
+        clicks.innerHTML = 'Corn: ' + WOW;
+        save()
+    };
+    function upgrade() {
+        if (WOW > need) {
+        ClickIt = ClickIt + 1
+        WOW = WOW - need
+        need = need + 50
+        updateButton(need)
+        Click()
+        }
+    }
+        function dab() {
+    WOW = 0
+    click = 0
+    youNeedIt = 0
+    save()
+    window.location = "/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD BOY&url=/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD BOY&url=/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD&url=/error?No more"
+    }
+    function setCookie(cname, cvalue) {
+    const d = new Date();
+    d.setTime(d.getTime() + (Infinity*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
+  }
+  function save() {
+    setCookie('corn', WOW)
+    setCookie('click', ClickIt)
+    setCookie('youNeedIt', need)
+  }
+  function load() {
+    if (getCookie('corn') == null == false) {
+      WOW = Number(getCookie('corn'))
+    }
+    if (getCookie('click') == null == false) {
+      ClickIt = Number(getCookie('click'))
+    }
+    if (getCookie('youNeedIt') == null == false) {
+      need = Number(getCookie('youNeedIt'))
+    }
+    if (getCookie('wow') == null == false) {
+      rebirth = Number(getCookie('wow'))
+    }
+  }
+  function rebirth() {
+    if (WOW > 10000) {
+    removeCookie('corn')
+    removeCookie('click')
+    removeCookie('youNeedIt')
+    rebirths = rebirths + 1
+    setCookie('wow', rebirths)
+    location.reload()
+    }
+  }
+  function updateButton(num) {
+    var button = document.getElementById("Button");
+    button.innerHTML = 'Upgrade You need ' + num
+  }
+  function removeCookie(name) {document.cookie = name + '=;expires=' + new Date(0).toUTCString()}
+</script>
