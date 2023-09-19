@@ -1,0 +1,55 @@
+name: HTML and JavaScript Code Validation
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Validate HTML files
+      run: |
+        html_errors=0
+        for file in $(find . -name "*.html"); do
+          npx html-validate "$file"
+          if [ $? -ne 0 ]; then
+            echo "HTML error in file: $file"
+            html_errors=$((html_errors+1))
+          fi
+        done
+
+    - name: Validate JavaScript files
+      run: |
+        js_errors=0
+        for file in $(find . -name "*.js"); do
+          npx eslint "$file"
+          if [ $? -ne 0 ]; then
+            echo "JavaScript error in file: $file"
+            js_errors=$((js_errors+1))
+          fi
+        done
+
+    - name: Calculate Safety Level
+      id: safety
+      run: |
+        total_files=$(find . -name "*.html" -o -name "*.js" | wc -l)
+        total_errors=$((html_errors + js_errors))
+        safety_level=$((100 - (total_errors * 100 / total_files)))
+        echo "Safety Level: $safety_level%"
+        echo "::set-output name=safety_level::$safety_level"
+
+    - name: Final validation status
+      run: |
+        safety_level="${{ steps.safety.outputs.safety_level }}"
+        if [ $safety_level -eq 100 ]; then
+          echo "HTML and JavaScript code are valid. Safety Level: $safety_level%"
+        else
+          echo "HTML and JavaScript code have errors. Safety Level: $safety_level%"
+          exit 1
+        fi
