@@ -1,0 +1,23 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Upload to FTP
+      uses: wstam88/ftp-action@v3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localDir: ./  # Adjust to the path of your repository
+        remoteDir: /htdocs  # Adjust to your FTP server's htdocs path
