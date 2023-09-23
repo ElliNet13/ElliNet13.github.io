@@ -1,0 +1,45 @@
+/* styles.css */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  max-width: 100%; /* Limit the width of the container */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Add some padding for better spacing */
+}
+
+.dimensions {
+  margin: 10px auto;
+}
+
+#imageInput {
+  display: block;
+  margin: 10px auto;
+}
+
+#displayImage {
+  display: none;
+  max-width: 100%;
+  margin: 10px auto;
+}
+
+#removeButton {
+  display: none;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+#removeButton:hover {
+  background-color: #ff5555;
+}
