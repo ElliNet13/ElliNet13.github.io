@@ -18,6 +18,7 @@ function removeImage() {
   widthInput.value = '';
   heightInput.value = '';
   localStorage.removeItem('blobUrl'); // Remove Blob URL from localStorage
+  blobUrl = null; // Clear the current Blob URL
 }
 
 // Function to save Blob URL to localStorage
@@ -60,6 +61,11 @@ if (storedBlobUrl) {
 imageInput.addEventListener('change', function () {
   const file = imageInput.files[0];
   if (file) {
+    // Remove the old Blob URL if it exists
+    if (blobUrl) {
+      URL.revokeObjectURL(blobUrl);
+    }
+    
     // Create a Blob from the uploaded image
     const blob = new Blob([file], { type: file.type });
 
@@ -71,7 +77,7 @@ imageInput.addEventListener('change', function () {
     displayImage.style.display = 'block';
     removeButton.style.display = 'block';
     
-    // Save the Blob URL to localStorage
+    // Save the new Blob URL to localStorage
     saveBlobUrl(blobUrl);
     
     // Update image dimensions based on user input
