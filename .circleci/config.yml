@@ -1,42 +1,22 @@
 version: 2.1
-orbs:
-  discord: circleci/discord@1.0.1
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build_and_test:
-          build_name: "Send to Discord" # Set your custom build name
-      - send_discord_notification:
-          context: discord-token
 jobs:
-  build_and_test:
+  build:
     docker:
       - image: cimg/base:2020.01
     steps:
-      - run:
-          name: Checkout code
-          command: checkout
+      - checkout
       - run:
           name: Build and Test
           command: |
             # Add your build and test commands here
-      - persist_to_workspace:
-          root: /app
-          paths:
-            - . # Persist the workspace to be used in the next job
-      - store_artifacts:
-          path: /app
-          destination: workspace
-  send_discord_notification:
-    executor: discord/default
+  notify_discord:
+    docker:
+      - image: cimg/base:2020.01
     steps:
-      - attach_workspace:
-          at: /workspace
       - run:
-          name: Get Build Name
-          command: echo $CIRCLE_JOB
-      - discord/notify:
-          webhooks:
-            - url: https://discord.com/api/webhooks/1159573098216042576/4rVEPkIisvhOmOiY4E8HOP2R11KwfZRLVfyhJBR1FEFsLSUcxdWhZCxXwR72yvhVEHzu
-          message: "Build $CIRCLE_JOB completed successfully! :tada:"
+          name: Send Discord Notification
+          command: |
+            DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/1159573098216042576/4rVEPkIisvhOmOiY4E8HOP2R11KwfZRLVfyhJBR1FEFsLSUcxdWhZCxXwR72yvhVEHzu"
+            BUILD_NAME="$CIRCLE_JOB"
+            MESSAGE="Build $BUILD_NAME completed successfully! :tada:"
+            curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"$MESSAGE\"}" $DISCORD_WEBHOOK_URL
