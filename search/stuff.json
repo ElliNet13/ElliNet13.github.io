@@ -18,5 +18,9 @@
 "17": {"name": "Find GitHub user", "Link": "/GitHubUserPage"},
 "18": {"name": "GitHub Logo", "Link": "https://github.com/fluidicon.png"},
 "19": {"name": "Black hole SUS images", "Link": "/bh_SUS"},
-"20": {"name": "Chat", "Link": "/Chat"}
+"20": {"name": "Chat", "Link": "/Chat"},
+"21": {"name": "ChatGPT", "Link": "https://chat.openai.com/"},
+"22": {"name": "ElliNet13 and Emma's weird app", "Link": "https://bit.ly/weirdapp"},
+"23": {"name": "ElliNet13's Class", "Link": "https://bit.ly/eeeclass"},
+"24": {"name": "ElliNet13's hard Get Rick game", "Link": "https://bit.ly/getricke"}
 }
