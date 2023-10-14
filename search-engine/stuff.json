@@ -1,5 +1,22 @@
 {
-"1": {"name": "My site", "Link": "https://ellinet13.github.io"},
+"1": {"name": "Homepage", "Link": "https://ellinet13.github.io"},
 "2": {"name": "Burger king", "Link": "https://images.genius.com/0304b934a11f42d4bcfb0205b30b8bd2.500x500x1.jpg"},
-"3": {"name": "404", "Link": "https://google.com/THIS%20IS%20WHAT%20YOU%20WANTED"}
+"3": {"name": "404", "Link": "https://google.com/THIS_IS_WHAT_YOU_WANTED"},
+"4": {"name": "ElliNet13's Links", "Link": "https://bit.ly/m/ellinet13"},
+"5": {"name": "Pug clicker", "Link": "/pug"},
+"6": {"name": "Corn clicker", "Link": "/corn"},
+"7": {"name": "Hehe", "Link": "/hehe"},
+"8": {"name": "Hehe", "Link": "/hehe"},
+"9": {"name": "Files", "Link": "/files"},
+"10": {"name": "Kill???", "Link": "/Kill"},
+"11": {"name": "Image viewer", "Link": "/imageview"},
+"12": {"name": "Make colored pop-ups!", "Link": "/popups"},
+"13": {"name": "Search", "Link": "/search-engine"},
+"14": {"name": "Code Cell Sandbox", "Link": "/CodeCellSandbox"},
+"15": {"name": "Gun Blood", "Link": "/GunBlood"},
+"16": {"name": "ElliNet13's Python Library", "Link": "https://bit.ly/ellinet13s_lib"},
+"17": {"name": "Find GitHub user", "Link": "/GitHubUserPage"},
+"18": {"name": "GitHub Logo", "Link": "https://github.com/fluidicon.png"},
+"19": {"name": "Black hole SUS images", "Link": "/bh_SUS"},
+"20": {"name": "Chat", "Link": "/Chat"}
 }
