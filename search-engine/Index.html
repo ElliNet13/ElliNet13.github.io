@@ -1,105 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEHV13Z5M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-WEHV13Z5M9"></script>
+        <script>
+            <![CDATA[
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WEHV13Z5M9');
+            ]]>
+        </script>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Search Engine</title>
+        <style type="text/css">
+            <![CDATA[
+            /* Styles for the popup */
+            #popup {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #f2f2f2;
+                border: 1px solid #ccc;
+                padding: 10px;
+                max-width: 300px;
+            }
 
-  gtag('config', 'G-WEHV13Z5M9');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Engine</title>
-    <style>
-        /* Styles for the popup */
-        #popup {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            padding: 10px;
-            max-width: 300px;
-        }
+            /* Styles for the close button */
+            #closeBtn {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+            }
+            ]]>
+        </style>
+    </head>
+    <body>
+        <h1>Search Engine</h1>
+        <input type="text" id="searchInput" placeholder="Search..."/>
+        <ul id="searchResults"></ul>
 
-        /* Styles for the close button */
-        #closeBtn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <h1>Search Engine</h1>
-    <input type="text" id="searchInput" placeholder="Search...">
-    <ul id="searchResults"></ul>
+        <div id="popup">
+            <span id="closeBtn">&times;</span>
+            <p>This search engine was made by ElliNet.</p>
+        </div>
 
-    <div id="popup">
-        <span id="closeBtn">&times;</span>
-        <p>This search engine was made by ElliNet.</p>
-    </div>
+        <script type="text/javascript">
+            <![CDATA[
+            var jsonData; // Define the jsonData variable in the outer scope
 
-    <script>
-        let jsonData; // Define the jsonData variable in the outer scope
+            // Function to perform a search
+            function performSearch(query, jsonData) {
+                var searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = '';
 
-        // Function to perform a search
-        function performSearch(query, jsonData) {
-            const searchResults = document.getElementById('searchResults');
-            searchResults.innerHTML = '';
-
-            for (const key in jsonData) {
-                const item = jsonData[key];
-                const name = item.name.toLowerCase();
-                if (name.includes(query.toLowerCase())) {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.textContent = item.name;
-                    link.href = item.Link;
-                    listItem.appendChild(link);
-                    searchResults.appendChild(listItem);
+                for (var key in jsonData) {
+                    var item = jsonData[key];
+                    var name = item.name.toLowerCase();
+                    if (name.includes(query.toLowerCase())) {
+                        var listItem = document.createElement('li');
+                        var link = document.createElement('a');
+                        link.textContent = item.name;
+                        link.href = item.Link;
+                        listItem.appendChild(link);
+                        searchResults.appendChild(listItem);
+                    }
                 }
             }
-        }
 
-        // Event listener for input
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function () {
-            performSearch(this.value, jsonData); // Pass the JSON data
-        });
+            // Event listener for input
+            var searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function () {
+                performSearch(this.value, jsonData); // Pass the JSON data
+            });
 
-        // Show the popup unless the user closed it previously
-        const popup = document.getElementById('popup');
-        const closeBtn = document.getElementById('closeBtn');
+            // Show the popup unless the user closed it previously
+            var popup = document.getElementById('popup');
+            var closeBtn = document.getElementById('closeBtn');
 
-        closeBtn.addEventListener('click', function () {
-            // Set a cookie to remember that the popup was closed for 5 minutes
-            const expiryDate = new Date();
-            expiryDate.setTime(expiryDate.getTime() + 5 * 60 * 1000); // 5 minutes
-            document.cookie = `popupClosed=true; expires=${expiryDate.toUTCString()}; path=/`;
-            popup.style.display = 'none';
-        });
+            closeBtn.addEventListener('click', function () {
+                // Set a cookie to remember that the popup was closed for 5 minutes
+                var expiryDate = new Date();
+                expiryDate.setTime(expiryDate.getTime() + 5 * 60 * 1000); // 5 minutes
+                document.cookie = 'popupClosed=true; expires=' + expiryDate.toUTCString() + '; path=/';
+                popup.style.display = 'none';
+            });
 
-        // Check if the popup should be shown or not
-        if (document.cookie.indexOf("popupClosed=") === -1) {
-            popup.style.display = 'block';
-        }
+            // Check if the popup should be shown or not
+            if (document.cookie.indexOf('popupClosed=') === -1) {
+                popup.style.display = 'block';
+            }
 
-        // Fetch JSON data from an external file
-        fetch('stuff.json')
-            .then(response => response.json())
-            .then(data => {
-                // Store the fetched JSON data in the jsonData variable
-                jsonData = data; // Assign the data to the outer jsonData variable
-                // Initial search with an empty query
-                performSearch('', jsonData);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
-</body>
+            // Fetch JSON data from an external file
+            fetch('stuff.json')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    // Store the fetched JSON data in the jsonData variable
+                    jsonData = data; // Assign the data to the outer jsonData variable
+                    // Initial search with an empty query
+                    performSearch('', jsonData);
+                })
+                .catch(function (error) {
+                    console.error('Error fetching data:', error);
+                });
+            ]]>
+        </script>
+    </body>
 </html>
