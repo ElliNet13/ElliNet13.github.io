@@ -1,0 +1,9 @@
+<title>Get Roblox profile from Discord ID</title>
+<button onclick="ro()">Find Roblox profile from Discord ID</button>
+<script>
+    function ro() {
+        fetch("https://api.blox.link/v4/public/guilds/1156318744050675762/discord-to-roblox/" + prompt("Put in Discord ID"), { headers: { "Authorization": "130734bd-97ad-4f93-8c99-0e4232a31082" } })
+	.then((response) => response.json())
+	.then((data) => console.log(open("https://www.roblox.com/users/" + data.robloxID + "/profile")));
+    }
+</script>
