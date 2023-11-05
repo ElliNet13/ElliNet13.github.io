@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Get Roblox profile from Discord username</title>
-</head>
-<body>
-    <button onclick="ro()">Find Roblox profile from Discord ID</button>
-    <script>
-        const token = '{{ secrets.D }}'; // Use GitHub Secrets to replace this with the actual API key
-const token0 = '{{ secrets.R }}'; // Use GitHub Secrets to replace this with the actual API key
-	    
-	    function ro() {
-            fetch('https://discord.com/api/v10/users/' + prompt("Put in Discord user name"), {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                const userID = data.id;
-                fetch("https://api.blox.link/v4/public/guilds/1156318744050675762/discord-to-roblox/" + userID, { headers: { "Authorization": token0})
-                .then((response) => response.json())
-                .then((data) => {
-                    // This will open the Roblox profile in a new tab
-                    window.open("https://www.roblox.com/users/" + data.robloxID + "/profile", "_blank");
-                })
-                .catch((error) => {
-                    console.error('Error fetching Roblox data:', error);
-                });
-            })
-            .catch((error) => {
-                console.error('Error fetching user data:', error);
-            });
-        }
-    </script>
-</body>
-</html>
+<title>Get Roblox profile from Discord ID</title>
+<button onclick="ro()">Find Roblox profile from Discord ID</button>
+<script>
+    function ro() {
+        fetch("https://api.blox.link/v4/public/guilds/1156318744050675762/discord-to-roblox/" + prompt("Put in Discord ID"), { headers: { "Authorization": "130734bd-97ad-4f93-8c99-0e4232a31082" } })
+	.then((response) => response.json())
+	.then((data) => console.log(open("https://www.roblox.com/users/" + data.robloxID + "/profile")));
+    }
+</script>
