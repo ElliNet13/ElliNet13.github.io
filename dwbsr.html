@@ -5,9 +5,10 @@
     </head>
     <body>
         <script>
-            function go(webhookUrl) {
+            function go() {
+                var webhookUrl = prompt("Put in the webhook ")
 const message = {
-  content: 'Hello, this webhook has been reported on [my website](https://ellinet13.github.io/) this webhook will be t',
+  content: 'Hello, this webhook has been reported on [my website](https://ellinet13.github.io/) this webhook will be removed.',
 };
 
 fetch(webhookUrl, {
