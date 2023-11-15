@@ -5,7 +5,43 @@
     </head>
     <body>
         <script>
-            function run
+            function go(webhookUrl) {
+const message = {
+  content: 'Hello, webhook! This is a message before deletion.',
+};
+
+fetch(webhookUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(message),
+})
+  .then(response => {
+    if (response.ok) {
+      console.log('Message sent to webhook successfully!');
+      // Perform the webhook deletion here
+      fetch(webhookUrl, {
+        method: 'DELETE',
+      })
+        .then(deleteResponse => {
+          if (deleteResponse.ok) {
+            console.log('Webhook deleted successfully!');
+          } else {
+            console.error('Failed to delete webhook');
+          }
+        })
+        .catch(error => {
+          console.error('An error occurred:', error);
+        });
+    } else {
+      console.error('Failed to send message to webhook');
+    }
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
+            }
         </script>
     </body>
 </html>
