@@ -37,15 +37,19 @@ fetch(webhookUrl, {
         .then(deleteResponse => {
           if (deleteResponse.ok) {
             console.log('Webhook deleted successfully!');
+              alert('Webhook deleted successfully!')
           } else {
             console.error('Failed to delete webhook');
+              alert('Failed to delete webhook')
           }
         })
         .catch(error => {
           console.error('An error occurred:', error);
+            alert('An error occurred:' + error)
         });
     } else {
-      console.error('Failed to send message to webhook');
+      console.error('Failed to send report message to webhook');
+        alert("Failed to send report message to webhook")
     }
   })
   .catch(error => {
