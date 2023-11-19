@@ -1,0 +1,62 @@
+<DOCTYPE html>
+<html>
+    <head>
+        	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEHV13Z5M9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WEHV13Z5M9');
+</script>
+        <title>Discord Webhook Scam Remover</title>
+    </head>
+    <body>
+        <script>
+            function go() {
+                var webhookUrl = prompt("Put in the webhook URL")
+const message = {
+  content: 'Hello, this webhook has been reported on [this website](https://ellinet13.github.io/) this webhook will be removed.',
+};
+
+fetch(webhookUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(message),
+})
+  .then(response => {
+    if (response.ok) {
+      console.log('Message sent to webhook successfully!');
+      // Perform the webhook deletion here
+      fetch(webhookUrl, {
+        method: 'DELETE',
+      })
+        .then(deleteResponse => {
+          if (deleteResponse.ok) {
+            console.log('Webhook deleted successfully!');
+              alert('Webhook deleted successfully!')
+          } else {
+            console.error('Failed to delete webhook');
+              alert('Failed to delete webhook')
+          }
+        })
+        .catch(error => {
+          console.error('An error occurred:', error);
+            alert('An error occurred:' + error)
+        });
+    } else {
+      console.error('Failed to send report message to webhook');
+        alert("Failed to send report message to webhook")
+    }
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
+            }
+        </script>
+        <button onclick="go()">Report a Discord webhook</button>
+    </body>
+</html>
