@@ -39,12 +39,6 @@
     <h1>Search Engine</h1>
     <input type="text" id="searchInput" placeholder="Search...">
     <ul id="searchResults"></ul>
-
-    <div id="popup">
-        <span id="closeBtn">&times;</span>
-        <p>This search engine was made by ElliNet.</p>
-    </div>
-
     <script>
         let jsonData; // Define the jsonData variable in the outer scope
 
@@ -72,24 +66,6 @@
         searchInput.addEventListener('input', function () {
             performSearch(this.value, jsonData); // Pass the JSON data
         });
-
-        // Show the popup unless the user closed it previously
-        const popup = document.getElementById('popup');
-        const closeBtn = document.getElementById('closeBtn');
-
-        closeBtn.addEventListener('click', function () {
-            // Set a cookie to remember that the popup was closed for 5 minutes
-            const expiryDate = new Date();
-            expiryDate.setTime(expiryDate.getTime() + 5 * 60 * 1000); // 5 minutes
-            document.cookie = `popupClosed=true; expires=${expiryDate.toUTCString()}; path=/`;
-            popup.style.display = 'none';
-        });
-
-        // Check if the popup should be shown or not
-        if (document.cookie.indexOf("popupClosed=") === -1) {
-            popup.style.display = 'block';
-        }
-
         // Fetch JSON data from an external file
         fetch('stuff.json')
             .then(response => response.json())
