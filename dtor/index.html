@@ -1,3 +1,11 @@
+<style type="text/css">
+ span.warning {
+    color: red;
+    font-weight: bold;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+</style>
 <title>Get Roblox profile from Discord ID</title>
 <button onclick="ro()">Find Roblox profile from Discord ID</button>
 <script>
@@ -7,3 +15,4 @@
 	.then((data) => console.log(open("https://www.roblox.com/users/" + data.robloxID + "/profile")));
     }
 </script>
+<span class="warning"><br>Your browser might say that it blocked a popup when you put in the Discord ID so allow popups on this website.</span>
