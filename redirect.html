@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loading...</title>
+    <script src="https://kit.fontawesome.com/15d563bd08.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <i class=\"fa-solid fa-spinner fa-spin-pulse\"></i>
+        <script>
+        function get_mark(var_name) {
+var objUrlParams = new URLSearchParams(window.location.search);
+try{
+var theVar = objUrlParams.get(var_name)
+} catch(err) {
+    throw new Error("Mark var " + var_name + " could not be read for the following reason: " + err)
+    return(null)
+}
+return(theVar);
+}
+            window.location.href = get_mark("link");
+        </script>
+    </div>
+</body>
+
+</html>
