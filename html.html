@@ -1,0 +1,13 @@
+<script>
+function get_mark(var_name) {
+var objUrlParams = new URLSearchParams(window.location.search);
+try{
+var theVar = objUrlParams.get(var_name)
+} catch(err) {
+    throw new Error("Mark var " + var_name + " could not be read for the following reason: " + err)
+    return(null)
+}
+return(theVar);
+}
+document.write(get_mark("html"))
+</script>
