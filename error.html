@@ -33,41 +33,5 @@ document.getElementById('errorText').innerHTML = error
 }
 setErrorTo(get_mark('error'))
 </script>
-<div class="nameFinder">
-	<h1 id="text">Loading…</h1>
-	<button onclick="document.cookie = 'name=;expires=' + new Date(0).toUTCString(); location.reload()">Change your name</button>
-	<script>
-		function name() {
-		setCookie('name', prompt('What is your name?'))
-		location.reload()
-	}
-	function setCookie(cname, cvalue) {
-		const d = new Date();
-		d.setTime(d.getTime() + (Infinity*24*60*60*1000));
-		let expires = "expires="+ d.toUTCString();
-		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-	  }
-	function getCookie(cname) {
-		let name = cname + "=";
-		let decodedCookie = decodeURIComponent(document.cookie);
-		let ca = decodedCookie.split(';');
-		for(let i = 0; i <ca.length; i++) {
-		  let c = ca[i];
-		  while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		  }
-		  if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		  }
-		}
-		return null;
-	  }
-	if (getCookie('name') == null) {
-		name()
-	} else {
-		document.getElementById("text").innerHTML = "Hi " + getCookie('name') + ' it seems you got an error.'
-	}
-	</script>
-	</div>
 </body>
 </html>
