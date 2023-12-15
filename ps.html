@@ -11,7 +11,7 @@
 <label for="audioInput">Audio file: </label>
 <!-- Audio File Input Element -->
   <input type="file" id="audioInput" accept="audio/*">
-<div
+<div id="metadata"></div>
 <audio controls id="myAudio" src="">
   Your browser does not support the audio element.
 </audio>
@@ -71,7 +71,7 @@
       console.log('Album:', album);
 
       // For example, display metadata in HTML
-      const metadataDiv = document.createElement('div');
+      const metadataDiv = document.getElementById("metadata")
       metadataDiv.innerHTML = `<p>Title: ${title}</p><p>Artist: ${artist}</p><p>Album: ${album}</p>`;
       document.body.appendChild(metadataDiv);
     }
