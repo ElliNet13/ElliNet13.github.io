@@ -11,7 +11,7 @@
 <label for="audioInput">Audio file: </label>
 <!-- Audio File Input Element -->
   <input type="file" id="audioInput" accept="audio/*">
-
+<div
 <audio controls id="myAudio" src="">
   Your browser does not support the audio element.
 </audio>
@@ -40,6 +40,41 @@
 
       // For example, you can create an audio element to play the selected audio
       audio.src = blobURL;
+      
+      if (audioInput.files.length > 0) {
+        const selectedAudio = audioInput.files[0];
+
+        // Read the selected audio file as Blob URL
+        const blobURL = URL.createObjectURL(selectedAudio);
+
+        // Use jsmediatags to extract metadata
+        jsmediatags.read(blobURL, {
+          onSuccess: function (tag) {
+            handleMetadata(tag.tags);
+          },
+          onError: function (error) {
+            console.error('Error reading metadata:', error);
+          }
+        });
+      }
+    }
+
+    function handleMetadata(metadata) {
+      // Extracted metadata properties
+      const title = metadata.title || 'Unknown Title';
+      const artist = metadata.artist || 'Unknown Artist';
+      const album = metadata.album || 'Unknown Album';
+
+      // Display metadata or use it as needed
+      console.log('Title:', title);
+      console.log('Artist:', artist);
+      console.log('Album:', album);
+
+      // For example, display metadata in HTML
+      const metadataDiv = document.createElement('div');
+      metadataDiv.innerHTML = `<p>Title: ${title}</p><p>Artist: ${artist}</p><p>Album: ${album}</p>`;
+      document.body.appendChild(metadataDiv);
+    }
     }
   
 </script>
