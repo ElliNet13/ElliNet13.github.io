@@ -39,40 +39,7 @@
 
       // For example, you can create an audio element to play the selected audio
       audio.src = blobURL;
-      
-      // Extract basic metadata using FileReader
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const buffer = e.target.result;
-      const view = new DataView(buffer);
-
-      // Check for ID3v2 tag
-      if (
-        view.getUint8(0) === 73 && // I
-        view.getUint8(1) === 68 && // D
-        view.getUint8(2) === 51    // 3
-      ) {
-        // Extract basic metadata
-        const title = String.fromCharCode.apply(null, new Uint8Array(buffer.slice(30, 60))).replace(/\0/g, '');
-        const artist = String.fromCharCode.apply(null, new Uint8Array(buffer.slice(60, 90))).replace(/\0/g, '');
-        const album = String.fromCharCode.apply(null, new Uint8Array(buffer.slice(90, 120))).replace(/\0/g, '');
-
-        // Display metadata or use it as needed
-        console.log('Title:', title);
-        console.log('Artist:', artist);
-        console.log('Album:', album);
-
-        // Display metadata in HTML
-        metadataDiv.innerHTML = `<p>Title: ${title}</p><p>Artist: ${artist}</p><p>Album: ${album}</p>`;
-      } else {
-        console.error('No ID3v2 tag found.');
-      }
-    };
-
-    // Read a portion of the file to check for an ID3v2 tag
-    reader.readAsArrayBuffer(audioInput.files[0].slice(0, 128));
     }
-  
 </script>
 
 </body>
