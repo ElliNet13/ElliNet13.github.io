@@ -21,42 +21,7 @@
 
   function loadAudio() {
     var jsonLink = document.getElementById("jsonLink").value;
-
-    fetch(jsonLink)
-      .then(response => response.json())
-      .then(data => {
-        var { title, artist, album, songUrl } = data;
-
-        audio.src = songUrl;
-        audio.title = title;
-        audio.artist = artist;
-        audio.album = album;
-
-        // Set media session metadata after the audio source has loaded
-        audio.addEventListener('loadeddata', function() {
-          if ('mediaSession' in navigator) {
-            navigator.mediaSession.metadata = new MediaMetadata({
-              title: title,
-              artist: artist,
-              album: album
-            });
-
-            navigator.mediaSession.setActionHandler('play', function() {
-              audio.play();
-            });
-
-            navigator.mediaSession.setActionHandler('pause', function() {
-              audio.pause();
-            });
-
-            navigator.mediaSession.setActionHandler('stop', function() {
-              audio.pause();
-              audio.currentTime = 0;
-            });
-          }
-        });
-      })
-      .catch(error => console.error('Error fetching JSON:', error));
+    
   }
 </script>
 
