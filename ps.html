@@ -4,42 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JSON Audio Player</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.1/jsmediatags.min.js"></script>
 </head>
 <body>
 
 <label for="audioInput">Audio file: </label>
 <!-- Audio File Input Element -->
   <input type="file" id="audioInput" accept="audio/*">
-<div id="metadata"></div>
+
 <audio controls id="myAudio" src="">
   Your browser does not support the audio element.
 </audio>
 
 <script>
   var audio = document.getElementById("myAudio");
-    document.getElementById('audioInput').addEventListener('change', handleAudioSelect);
 
-    function handleAudioSelect(event) {
-      const audioInput = event.target;
-
-      if (audioInput.files.length > 0) {
-        const selectedAudio = audioInput.files[0];
-
-        // Read the selected audio file as Blob URL
-        const blobURL = URL.createObjectURL(selectedAudio);
-
-        // Use the Blob URL as needed (e.g., for audio playback or further processing)
-        handleBlobURL(blobURL);
-      }
-
-    function handleBlobURL(blobURL) {
-      // Perform any additional processing or use the Blob URL as needed
-      console.log('Blob URL:', blobURL);
-
-      // For example, you can create an audio element to play the selected audio
-      audio.src = blobURL;
-    }
+  function loadAudio() {
+    var jsonLink = document.getElementById("jsonLink").value;
+    audio.src = jsonLink
+  }
 </script>
 
 </body>
