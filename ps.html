@@ -7,10 +7,9 @@
 </head>
 <body>
 
-<label for="audio">Audio file: </label>
-<input type="text" id="jsonLink" placeholder="Enter li
-
-<button onclick="loadAudio()">Load Audio</button>
+<label for="audioInput">Audio file: </label>
+<!-- Audio File Input Element -->
+  <input type="file" id="audioInput" accept="audio/*">
 
 <audio controls id="myAudio" src="">
   Your browser does not support the audio element.
