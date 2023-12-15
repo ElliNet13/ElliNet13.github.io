@@ -7,12 +7,12 @@
 </head>
 <body>
 
-<label for="jsonLink">JSON Link:</label>
-<input type="text" id="jsonLink" placeholder="Enter JSON link">
+<label for="jsonLink">Audio link: </label>
+<input type="text" id="jsonLink" placeholder="Enter JS">
 
 <button onclick="loadAudio()">Load Audio</button>
 
-<audio controls id="myAudio">
+<audio controls id="myAudio" src="">
   Your browser does not support the audio element.
 </audio>
 
@@ -21,7 +21,7 @@
 
   function loadAudio() {
     var jsonLink = document.getElementById("jsonLink").value;
-    
+    audio.src = jsonLink
   }
 </script>
 
