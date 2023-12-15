@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Audio Player</title>
+</head>
+<body>
+
+<label for="jsonLink">JSON Link:</label>
+<input type="text" id="jsonLink" placeholder="Enter JSON link">
+
+<button onclick="loadAudio()">Load Audio</button>
+
+<audio controls id="myAudio">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  var audio = document.getElementById("myAudio");
+
+  function loadAudio() {
+    var jsonLink = document.getElementById("jsonLink").value;
+
+    fetch(jsonLink)
+      .then(response => response.json())
+      .then(data => {
+        var { title, artist, album, songUrl } = data;
+
+        audio.src = songUrl;
+        audio.title = title;
+        audio.artist = artist;
+        audio.album = album;
+
+        // Set media session metadata after the audio source has loaded
+        audio.addEventListener('loadeddata', function() {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+              title: title,
+              artist: artist,
+              album: album
+            });
+
+            navigator.mediaSession.setActionHandler('play', function() {
+              audio.play();
+            });
+
+            navigator.mediaSession.setActionHandler('pause', function() {
+              audio.pause();
+            });
+
+            navigator.mediaSession.setActionHandler('stop', function() {
+              audio.pause();
+              audio.currentTime = 0;
+            });
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching JSON:', error));
+  }
+</script>
+
+</body>
+</html>
