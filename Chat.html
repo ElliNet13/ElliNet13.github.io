@@ -16,3 +16,11 @@
 </head>
 <iframe id="Chat" class="Chat" src="https://kiwiirc.com/nextclient/irc.libera.chat/#ElliNet_Chat" width="647" height="400"></iframe>
 <br><a href="https://kiwiirc.com/nextclient/irc.libera.chat/#ElliNet_Chat">Link to chat</a>
+<script>
+    if (window.self !== window.top) {
+  console.log("The page is inside an iframe");
+} else {
+    console.log("The page was went to dir")
+  window.location.href = "https://kiwiirc.com/nextclient/irc.libera.chat/#ElliNet_Chat";
+}
+</script>
