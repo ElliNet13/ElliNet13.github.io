@@ -18,8 +18,12 @@ if ('bluetooth' in navigator) {
 
       await characteristic.startNotifications();
     } catch (error) {
-      console.error('Bluetooth error:', error);
+      displayError(`Bluetooth error: ${error}`);
     }
+  }
+
+  function displayError(errorMessage) {
+    document.write(`<p style="color: red;">${errorMessage}</p>`);
   }
 
   function sendMessage() {
@@ -30,7 +34,10 @@ if ('bluetooth' in navigator) {
       const messageDiv = document.getElementById('messageDiv');
       messageDiv.innerHTML += `<p>${message}</p>`;
 
-      characteristic.writeValue(new TextEncoder().encode(message));
+      characteristic.writeValue(new TextEncoder().encode(message))
+        .catch((error) => {
+          displayError(`Failed to send message: ${error}`);
+        });
     }
 
     // Clear the input field
@@ -42,5 +49,5 @@ if ('bluetooth' in navigator) {
     messageDiv.innerHTML += `<p>${message}</p>`;
   }
 } else {
-  console.error('Web Bluetooth API not supported.');
+  displayError('Web Bluetooth API not supported.');
 }
