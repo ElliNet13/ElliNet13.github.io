@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluetooth GATT Chat</title>
+  <style>
+    #messageDiv {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+</head>
+<body>
+  <div id="messageDiv"></div>
+  <input type="text" id="messageInput" placeholder="Type your message">
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="connectBluetooth()">Connect to Bluetooth</button>
+  <script src="btchat.js"></script>
+  <label for="debugCheckbox">Enable Debug:</label>
+  <input type="checkbox" id="debugCheckbox">
+
+  <script>
+    // Function to toggle Eruda based on checkbox state
+    function toggleEruda() {
+      if (document.getElementById('debugCheckbox').checked) {
+        // Enable Eruda
+        eruda.init();
+      } else {
+        // Disable Eruda
+        eruda.destroy();
+      }
+    }
+
+    // Attach toggleEruda function to checkbox change event
+    document.getElementById('debugCheckbox').addEventListener('change', toggleEruda);
+  </script>
+</body>
+</html>
