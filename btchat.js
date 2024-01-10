@@ -1,5 +1,12 @@
 if ('bluetooth' in navigator) {
   let characteristic; // Define characteristic globally
+  
+  class BluetoothError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "BluetoothError";
+  }
+}
 
   async function connectBluetooth() {
     try {
