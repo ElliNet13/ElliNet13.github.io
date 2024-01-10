@@ -24,6 +24,7 @@ if ('bluetooth' in navigator) {
 
   function displayError(errorMessage) {
     document.write(`<p style="color: red;">${errorMessage}</p>`);
+    throw new B
   }
 
   function sendMessage() {
