@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This is my avatar now!</title>
+</head>
+<body>
+  <label for="usernameInput">Enter username:</label>
+  <input type="text" id="usernameInput" placeholder="Username">
+  <button onclick="downloadAvatar()">Download Avatar</button>
+
+  <div id="userAvatar"></div>
+  <p id="notFoundMessage" style="color: red;"></p>
+
+  <script>
+    function downloadAvatar() {
+      const username = document.getElementById('usernameInput').value;
+      const apiUrl = 'https://discord.com/api/guilds/1156318744050675762/widget.json';
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Find the user in the members array
+          const user = data.members.find(member => member.username === username);
+
+          if (user) {
+            const avatarUrl = user.avatar_url;
+
+            // Create HTML elements
+            const userAvatarElement = document.getElementById('userAvatar');
+            const avatarImage = document.createElement('img');
+            
+            // Set attributes
+            avatarImage.src = avatarUrl;
+            avatarImage.alt = `${username}'s Avatar`;
+
+            // Clear previous content
+            userAvatarElement.innerHTML = '';
+
+            // Append the avatar image
+            userAvatarElement.appendChild(avatarImage);
+          } else {
+            document.getElementById('notFoundMessage').innerHTML = `User not found. <br> Troubleshooting steps: <br> 1. Check if the username is correct <br> 2. Check if the user you requested is online and on <a href="${data.instant_invite}">ElliNet13's Discord Server</a>`;
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+  </script>
+</body>
+</html>
