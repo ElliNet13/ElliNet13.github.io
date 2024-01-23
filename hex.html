@@ -12,7 +12,8 @@
 
         <button type="button" onclick="convert()">Convert</button>
 
-        <p id="result"></p>
+        <p id="result"></p><br>
+<p>Tip: Put $ at the front of a hexadecimal number to force it into hexadecimal mode!</p>
     </form>
 
     <script>
@@ -22,7 +23,7 @@
     // Check if the input is a number or hexadecimal
     if (!isNaN(inputValue)) {
         // Convert a number to hexadecimal
-        let hexValue = parseInt(inputValue).toString(16).toUpperCase();
+        let hexValue = "$" + parseInt(inputValue).toString(16).toUpperCase();
         document.getElementById('result').innerText = `Decimal to Hexadecimal: ${inputValue} -> ${hexValue}`;
     } else {
         // Filter out non-hexadecimal characters
