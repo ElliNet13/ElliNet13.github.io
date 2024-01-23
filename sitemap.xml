@@ -86,4 +86,9 @@
         <loc>https://ellinet13.github.io/search/</loc>
     </url>
 
+<!-- Hexadecimal converter -->
+    <url>
+        <loc>https://ellinet13.github.io/hex/</loc>
+    </url>
+
 </urlset>
