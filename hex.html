@@ -22,7 +22,7 @@
     // Check if the input is a number or hexadecimal
     if (!isNaN(inputValue)) {
         // Convert a number to hexadecimal
-        let hexValue = '0x' + parseInt(inputValue).toString(16).toUpperCase();
+        let hexValue = parseInt(inputValue).toString(16).toUpperCase();
         document.getElementById('result').innerText = `Decimal to Hexadecimal: ${inputValue} -> ${hexValue}`;
     } else {
         // Filter out non-hexadecimal characters
