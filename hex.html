@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal converter</title>
+</head>
+<body>
+    <form id="conversionForm">
+        <label for="inputValue">Enter Number or Hexadecimal:</label>
+        <input type="text" id="inputValue" name="inputValue" required>
+
+        <button type="button" onclick="convert()">Convert</button>
+
+        <p id="result"></p><br>
+<p>Tip: Put $ at the front of a hexadecimal number to force it into hexadecimal mode!</p>
+    </form>
+
+    <script>
+        function convert() {
+    let inputValue = document.getElementById('inputValue').value;
+
+    // Check if the input is a number or hexadecimal
+    if (!isNaN(inputValue)) {
+        // Convert a number to hexadecimal
+        let hexValue = "$" + parseInt(inputValue).toString(16).toUpperCase();
+        document.getElementById('result').innerText = `Decimal to Hexadecimal: ${inputValue} -> ${hexValue}`;
+    } else {
+        // Filter out non-hexadecimal characters
+        let validHexInput = inputValue.replace(/[^0-9A-Fa-f]/g, '');
+        
+        // Convert hexadecimal to a number
+        let decimalValue = parseInt(validHexInput, 16);
+        document.getElementById('result').innerText = `Hexadecimal to Decimal: ${validHexInput} -> ${decimalValue}`;
+    }
+}
+    </script>
+</body>
+</html>
