@@ -7,6 +7,8 @@
     <input id="text" type="text" placeholder="GitHub user name"/>
     <input type="button" onclick="gitHubUserPage()" value="Go to the GitHub user page"/>
 </form>
+<br>
+<button onclick="navigator.registerProtocolHandler('githubuser', 'https://ellinet13.github.io/GithubUserPage?user=%s', 'Get a Github user profile');">Add as githubuser://</button>
 <script>
     let user = document.getElementById("text")
     if (get_mark('user') == null == false) {
