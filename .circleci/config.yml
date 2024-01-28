@@ -14,9 +14,5 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - run:
-          name: Send Discord Notification
-          command: |
-            DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/1159573098216042576/4rVEPkIisvhOmOiY4E8HOP2R11KwfZRLVfyhJBR1FEFsLSUcxdWhZCxXwR72yvhVEHzu"
-            BUILD_NAME="$CIRCLE_JOB"
-            MESSAGE="Build $BUILD_NAME completed successfully! :tada:"
-            curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"$MESSAGE\"}" $DISCORD_WEBHOOK_URL
+          name: Template
+          command: echo
