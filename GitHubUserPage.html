@@ -11,7 +11,7 @@
 </form>
 <br>
 
-<button onclick="registerCustomProtocol()">Add as githubuser://</button>
+<button onclick="registerCustomProtocol()">Add as web+githubuser://</button>
 
 <script>
     let user = document.getElementById("text")
@@ -23,7 +23,7 @@
     function registerCustomProtocol() {
     if (navigator.registerProtocolHandler) {
         try {
-            navigator.registerProtocolHandler('githubuser', 'https://ellinet13.github.io/GithubUserPage?user=%s', 'Get a Github user profile');
+            navigator.registerProtocolHandler('web+githubuser', 'https://ellinet13.github.io/GithubUserPage?user=%s', 'Get a Github user profile');
             alert('Custom protocol handler registered successfully!');
         } catch (error) {
             alert('Error registering custom protocol handler: ' + error.message);
