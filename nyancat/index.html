@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyan Cat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #nyan-gif {
+            width: 100%; /* Changed width to 100% for responsiveness */
+            max-width: 400px; /* Added max-width to limit size on larger screens */
+        }
+        .italic-text {
+            font-style: italic;
+            color: #555; /* Added color for better readability */
+            margin-top: 10px; /* Added margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="nyan.gif" alt="Nyan Cat" id="nyan-gif">
+        <br>
+        <audio autoplay loop controls>
+            <source src="nyan.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <p class="italic-text">Turn on the audio for the full Nyan Cat experience!</p>
+    </div>
+</body>
+</html>
