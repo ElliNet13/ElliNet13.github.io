@@ -7,7 +7,7 @@
 //
 // == Harness the power of ChatGPT-3.5-Turbo + More in your projects! ==
 // (YOU DO NOT NEED TO LOAD UNSANDBOXED)
-// By LOLEMO, Forked by Anonymous_cat1 and then forked by MubiLop
+// By LOLEMO, Forked by Anonymous_cat1 and then forked by MubiLop then saved onto ellinet13.github.io by ElliNet13
 // Only tested on PenguinMod.
 
 (function(Scratch) {
