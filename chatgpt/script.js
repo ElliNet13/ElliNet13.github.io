@@ -22,6 +22,7 @@ async function resetBot() {
   messages = [];
   document.getElementById('prompt').value = '';
   document.getElementById('output').value = '';
+  document.getElementById('systemMessage').value = '';
 }
 
 async function fetchData(messages, role, content) {
