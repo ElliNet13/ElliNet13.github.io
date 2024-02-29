@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Interaction</title>
+</head>
+<body>
+  <label for="prompt">Enter your ChatGPT prompt:</label><br>
+  <input type="text" id="prompt"><br>
+  <button onclick="sendUserInput()">Send</button><br>
+
+  <label for="output">ChatGPT Response:</label><br>
+  <textarea id="output" rows="4" cols="50" readonly></textarea><br>
+
+  <label for="systemMessage">Send system message:</label><br>
+  <input type="text" id="systemMessage"><br>
+  <button onclick="sendSystemMessage()">Send System Message</button><br>
+
+  <button onclick="resetBot()">Reset Bot</button>
+</body>
+<script src="script.js"></script>
+</html>
