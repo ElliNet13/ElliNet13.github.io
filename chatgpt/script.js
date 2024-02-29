@@ -66,7 +66,7 @@ async function sendSystemMessage() {
   const response = await fetchData(messages, "system", systemMessage);
   const responseData = response.choices[0].message;
   messages.push({ role: "user", content: responseData.content });
-  document.getElementById('output').value = responseData.content;
+  document.getElementById('output').InnerHTML = markdownToHtml(responseData.content);
 }
 
 async function resetBot() {
