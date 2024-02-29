@@ -101,4 +101,9 @@
         <loc>https://ellinet13.github.io/nyancat</loc>
     </url>
 
+    <!-- Free ChatGPT -->
+    <url>
+        <loc>https://ellinet13.github.io/chatgpt</loc>
+    </url>
+
 </urlset>
