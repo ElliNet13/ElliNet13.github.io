@@ -1,63 +1,12 @@
 let messages = [];
 
-function markdownToHtml(markdown) {
-
-    const html = markdown
-
-      .replace(/# (.*?)(\n|$)/g, '<h1>$1</h1>')
-      .replace(/## (.*?)(\n|$)/g, '<h2>$1</h2>')
-      .replace(/\*{2}(.*?)\*{2}/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/-{3,}/g, '<hr>')
-      .replace(/\*{3,}/g, '<hr>')
-      .replace(/- (.*?)(\n|$)/g, '<li>$1</li>')
-      .replace(/<\/li>\n<li>/g, '</li><li>')
-      .replace(/<li>(.*?)<\/li>/g, '<ul><li>$1</li></ul>')
-      .replace(/\n/g, '<br>')
-      .replace(/> (.*?)(\n|$)/g, '<blockquote>$1</blockquote>')
-      .replace(/```(\w+)?\n([\s\S]*?)\n```/g, (match, language, code) => {
-        const highlightedCode = language
-          ? `<pre><code class="language-${language}">${code}</code></pre>`
-          : `<pre><code>${code}</code></pre>`;
-        return highlightedCode;
-      })
-      .replace(/`([^`\n]+)`/g, '<code>$1</code>')
-      .replace(/(\d+)\. (.*?)(\n|$)/g, '<li>$2</li>')
-      .replace(/<\/li>\n<li>/g, '</li><li>')
-      .replace(/<li>(.*?)<\/li>/g, '<ol><li>$1</li></ol>')
-      .replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-      .replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
-      .replace(/~~(.*?)~~/g, '<del>$1</del>')
-      .replace(/\|(.+?)\|/g, (match, p1) => {
-        const cells = p1.split('|').map(cell => cell.trim());
-        return `<tr>${cells.map(cell => `<td>${cell}</td>`).join('')}</tr>`;
-      })
-      .replace(/<\/tr><tr>/g, '')
-      .replace(/<tr>(.*?)<\/tr>/g, '<table>$1</table>')
-      .replace(/\[(x| )\] (.*?)(\n|$)/g, '<input type="checkbox" $1 disabled> $2<br>')
-      .replace(/<\/li><input/g, '<input')
-      .replace(/<input(.*?)><br>/g, '<li><input$1></li>')
-      .replace(/<\/li>\n<li>/g, '</li><li>')
-      .replace(/<li>(.*?)<\/li>/g, '<ul><li>$1</li></ul>')
-      .replace(/\[\^([^\]]+)]/g, '<sup><a href="#fn:$1" id="fnref:$1">$1</a></sup>')
-      .replace(/\n\[\^([^\]]+)]:(.*?)$/g, '\n<div id="fn:$1">$1. $2 <a href="#fnref:$1" title="Jump back to footnote">&#8617;</a></div>')
-      .replace(/\*\[([^\]]+)]\*/g, '<abbr title="$1">$1</abbr>')
-      .replace(/\(\[([^\]]+)]\)/g, '<abbr title="$1">$1</abbr>')
-      .replace(/\^\^([^\s]+)\^\^/g, '<sup>$1</sup>')
-      .replace(/~([^\s]+)~/g, '<sub>$1</sub>')
-      .replace(/===([\s\S]*?)===/g, '<mark>$1</mark>')
-      .replace(/(https?:\/\/\S+)/g, '<a href="$1" target="_blank">$1</a>');
-  
-    return html;
-  }
-
 async function sendUserInput() {
   const userInput = document.getElementById('prompt').value;
   messages.push({ role: "user", content: userInput });
   const response = await fetchData(messages, "user", userInput);
   const responseData = response.choices[0].message;
   messages.push({ role: "system", content: responseData.content });
-  document.getElementById('output').innerHTML = markdownToHtml(responseData.content);
+  document.getElementById('output').value = responseData.content;
 }
 
 async function sendSystemMessage() {
@@ -66,7 +15,7 @@ async function sendSystemMessage() {
   const response = await fetchData(messages, "system", systemMessage);
   const responseData = response.choices[0].message;
   messages.push({ role: "user", content: responseData.content });
-  document.getElementById('output').InnerHTML = markdownToHtml(responseData.content);
+  document.getElementById('output').value = responseData.content;
 }
 
 async function resetBot() {
