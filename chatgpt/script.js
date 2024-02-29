@@ -72,6 +72,4 @@ for (var key in data) {
     select.add(option);
   }
 }
-
-// Appending the select element to the document body
-document.body.appendChild(select);
+updateInput(data['DAN (Jailbreak)'])
