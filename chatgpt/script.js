@@ -57,7 +57,7 @@ async function sendUserInput() {
   const response = await fetchData(messages, "user", userInput);
   const responseData = response.choices[0].message;
   messages.push({ role: "system", content: responseData.content });
-  document.getElementById('output').value = responseData.content;
+  document.getElementById('output').innerHTML = markdownToHtml(responseData.content);
 }
 
 async function sendSystemMessage() {
