@@ -1,4 +1,5 @@
-let messages = [];
+const startMessages = [{role:"system", content:"Your knowledge was cut off in 2022."}, {role:"system", content:"You can not use markdown as your messages are interpreted as plain text."}];
+let messages = startMessages;
 
 window.addEventListener('unhandledrejection', function(event) {
     document.getElementById('output').value = "Error! Please try again."
@@ -20,7 +21,7 @@ async function sendSystemMessage() {
 }
 
 async function resetBot() {
-  messages = [];
+  messages = startMessages;
   document.getElementById('prompt').value = '';
   document.getElementById('output').value = '';
 }
