@@ -16,8 +16,6 @@ async function sendUserInput() {
 async function sendSystemMessage() {
   const systemMessage = document.getElementById('systemMessage').value;
   messages.push({ role: "system", content: systemMessage });
-  const responseData = response.choices[0].message;
-  messages.push({ role: "user", content: responseData.content });
   document.getElementById('output').value = "Added system message.";
 }
 
