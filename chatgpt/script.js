@@ -36,7 +36,8 @@ async function fetchData(messages, role, content) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        //model: "gpt-3.5-turbo",
+        model: "gpt-4",
         messages: messages.concat([{ role: role, content: content }])
       })
     });
