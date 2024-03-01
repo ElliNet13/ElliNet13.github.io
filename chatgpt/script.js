@@ -46,42 +46,4 @@ async function fetchData(messages, role, content) {
     console.error("Error fetching data:", error);
     throw error;
   }
-}
-
-function updateInput(value) {
-  document.getElementById('systemMessage').value = value;
-}
-
-// Assuming you have a JSON object called 'data'
-let data;
-
-(async () => {
-  try {
-    const response = await fetch('prompts.json');
-    data = await response.json();
-    populateDropdown(data);
-  } catch (error) {
-    console.error('Error fetching JSON:', error);
-    // Handle errors if needed
-  }
-})();
-
-function populateDropdown(data) {
-  // Getting the select element
-  var select = document.getElementById('dropdown');
-
-  // Iterating over the keys in the JSON object
-  for (var key in data) {
-    if (data.hasOwnProperty(key)) {
-      // Creating an option element
-      var option = document.createElement("option");
-
-      // Setting the option's text and value
-      option.text = key;
-      option.value = data[key];
-
-      // Adding the option to the select element
-      select.add(option);
-    }
-  }
-}
+} 
