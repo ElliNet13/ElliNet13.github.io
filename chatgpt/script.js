@@ -1,9 +1,7 @@
 let messages = [];
 
 window.addEventListener('unhandledrejection', function(event) {
-    ale
-    rt("Unhandled Promise Rejection: " + event.reason);
-    initEruda();
+    document.getElementById('output').value = "Error! Please try again."
 });
 
 async function sendUserInput() {
