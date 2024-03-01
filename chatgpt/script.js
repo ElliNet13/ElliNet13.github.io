@@ -82,4 +82,3 @@ for (var key in data) {
     select.add(option);
   }
 }
-updateInput(data['DAN (Jailbreak)'])
