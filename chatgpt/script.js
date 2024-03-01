@@ -16,10 +16,9 @@ async function sendUserInput() {
 async function sendSystemMessage() {
   const systemMessage = document.getElementById('systemMessage').value;
   messages.push({ role: "system", content: systemMessage });
-  const response = await fetchData(messages, "system", systemMessage);
   const responseData = response.choices[0].message;
   messages.push({ role: "user", content: responseData.content });
-  document.getElementById('output').value = responseData.content;
+  document.getElementById('output').value = "Added system message.";
 }
 
 async function resetBot() {
