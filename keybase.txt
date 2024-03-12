@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/ellinet13
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ellinet13.github.io
+  * I am ellinet13 (https://keybase.io/ellinet13) on keybase.
+  * I have a public key ASCzK9CvF6rkwfrg6lkCWhT4Wdbz73-l96Xj_bOheH0cNQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120b32bd0af17aae4c1fae0ea59025a14f859d6f3ef7fa5f7a5e3fdb3a1787d1c350a",
+      "host": "keybase.io",
+      "kid": "0120b32bd0af17aae4c1fae0ea59025a14f859d6f3ef7fa5f7a5e3fdb3a1787d1c350a",
+      "uid": "88acf2fb910621423687059b71c1f719",
+      "username": "ellinet13"
+    },
+    "merkle_root": {
+      "ctime": 1710239766,
+      "hash": "f4d2300299cd7debbe16476580a308843fb94eea8b734c3dd09ee8c2537e3ff814c4182de5a5e28559f48854f37403b529f82942e1e2abecb71f08331b9846b7",
+      "hash_meta": "8b949eb363713444e8b0b6848a12bdc62716a0ecc6690cc0ff8ccdf474004e50",
+      "seqno": 25543108
+    },
+    "service": {
+      "entropy": "JijC5VRTp5K4SzUrJ7ivCsas",
+      "hostname": "ellinet13.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.2.8"
+  },
+  "ctime": 1710239814,
+  "expire_in": 504576000,
+  "prev": "e260185a5e6bc467dcaf9ea9c5207640777f5a8c1d79e52ed68dd65311c7bad0",
+  "seqno": 4,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgsyvQrxeq5MH64OpZAloU+FnW8+9/pfel4/2zoXh9HDUKp3BheWxvYWTESpcCBMQg4mAYWl5rxGfcr56pxSB2QHd/WowdeeUu1o3WUxHHutDEIOKBZvxYCB4h5cHXyntXcnQcIIQWIoXgE2Zx7YtoPMsBAgHCo3NpZ8RAmgjFgogPUu3EFxuyX9MGnO3XxzgYxRPpb5Dm14PB293v3+4+/zMCuPGLMlrgnYlO/5bsSPSuFYxFtX83kjEwDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEICX2kEJbBrWYGOxrpxqJdk1rJ/+9FR52qNK4XvDEEB7fo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ellinet13
+
+==================================================================
