@@ -23,7 +23,7 @@
     function registerCustomProtocol() {
     if (navigator.registerProtocolHandler) {
         try {
-            navigator.registerProtocolHandler('web+githubuser', 'https://ellinet13.github.io/GithubUserPage?user=%s', 'Get a Github user profile');
+            navigator.registerProtocolHandler('web+githubuser', 'https://ellinet13.github.io/GitHubUserPage?user=%s', 'Get a Github user profile');
             alert('Custom protocol handler registered successfully!');
         } catch (error) {
             alert('Error registering custom protocol handler: ' + error.message);
