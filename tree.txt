@@ -1,0 +1,149 @@
+.
+├── AI will never give you up.mp4
+├── Ads.txt
+├── CSS tests.html
+├── Chat.html
+├── CodeCellSandbox
+│   ├── LICENSE
+│   ├── assets
+│   │   └── cellpond-og-image.png
+│   ├── examples
+│   │   ├── bouncing-rocket.json
+│   │   ├── evil-brush.json
+│   │   ├── evil-lightning.json
+│   │   ├── fader.json
+│   │   ├── fractal.json
+│   │   ├── future-of-code-demo
+│   │   │   ├── 01-basic-sandbox.json
+│   │   │   ├── 02-basic-gloop.json
+│   │   │   ├── 03-edit-fader.json
+│   │   │   ├── 04-edit-evil-brush.json
+│   │   │   ├── 05-edit-evil-lightning.json
+│   │   │   ├── 06-split-splitter.json
+│   │   │   ├── 07-split-bouncing-rocket.json
+│   │   │   ├── 08-split-fractal.json
+│   │   │   ├── 09-end-huegene.json
+│   │   │   └── space.tldr
+│   │   ├── gloop.json
+│   │   ├── huegene.json
+│   │   ├── pink-sand.json
+│   │   ├── resolution-booster.json
+│   │   ├── sandbox.json
+│   │   ├── slime-brush.json
+│   │   ├── space-warp.json
+│   │   └── splitter.json
+│   ├── index.html
+│   ├── libraries
+│   │   ├── colour.js
+│   │   ├── habitat-embed.js
+│   │   ├── linked-list.js
+│   │   └── show.js
+│   └── main.js
+├── ElliNet13-Resized.png
+├── ElliNet13.jpeg
+├── ElliNet13sAwsomeFont
+│   ├── Ellinet13sAwesomeFont-Regular.otf
+│   └── Ellinet13sAwesomeFont-Regular.woff
+├── GitHubUserPage.html
+├── GunBlood.html
+├── Javascript-Scratch-extension.js
+├── Kill.html
+├── Loading.html
+├── M.m4a
+├── NextDNS
+│   ├── Dns
+│   ├── index.html
+│   └── script.js
+├── Pics
+│   ├── Camera.svg
+│   ├── CodeEditor.svg
+│   └── ElliNet13.png
+├── README.md
+├── bad.css
+├── bh_SUS
+│   ├── bh_SUS.exr
+│   ├── bh_SUS.jpg
+│   ├── bh_SUS.png
+│   ├── bh_SUS.tiff
+│   └── index.html
+├── btchat.html
+├── btchat.js
+├── chatgpt
+│   ├── index.html
+│   └── script.js
+├── corn.html
+├── disavator.html
+├── dtor
+│   └── index.html
+├── dwbsr.html
+├── error.html
+├── errori.png
+├── favicon.ico
+├── files.html
+├── gmodLoad
+│   ├── ElliNet13.jpeg
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
+├── gunblood.swf
+├── hehe.html
+├── hex.html
+├── html.html
+├── imageview
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
+├── index.html
+├── keybase.txt
+├── logerror.js
+├── manifest.json
+├── md.html
+├── music rick roll.mp3
+├── nFB8CQ7HD6AKvq.mhtml
+├── neverdabonpugs.html
+├── np.html
+├── null.html
+├── nyancat
+│   ├── index.html
+│   ├── nyan.gif
+│   └── nyan.wav
+├── pmod
+│   ├── chatgpt.js
+│   └── eextension.ts
+├── popups
+│   ├── desktop.ini
+│   ├── index.html
+│   ├── popup.html
+│   ├── script.js
+│   ├── script1.js
+│   └── style.css
+├── ps.html
+├── pug.html
+├── quotes.html
+├── rd.png
+├── recode.php
+├── redirect.html
+├── robots.txt
+├── ruffle.swf
+├── search
+│   ├── index.html
+│   ├── link.js
+│   ├── search.js
+│   ├── stuff.json
+│   └── styles.css
+├── sitemap.xml
+├── spotify.html
+├── styles.css
+├── sw.js
+├── text-file
+│   ├── index.js
+│   ├── indextml.html
+│   └── indexxt.txt
+├── tree.txt
+├── youClicker
+│   ├── ElliNetLoginGoogleYouClicker.json
+│   ├── app.js
+│   └── index.html
+└── youClicker.html
+
+19 directories, 127 files
