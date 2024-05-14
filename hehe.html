@@ -2,6 +2,95 @@
 <html>
 <head>
 <title>Hehe :)</title>
+<style>
+  [popover] {
+  background: black;
+  color: white;
+  font-weight: 400;
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 22ch;
+  line-height: 1.4;
+  top: 2rem;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+[popover]:popover-open {
+  display: flex;
+}
+  /* Animating the popover in */
+
+/*   IS-OPEN STATE   */
+[popover]:popover-open {
+  translate: 0 0;
+}
+
+/*   EXIT STATE   */
+[popover] {
+  transition: translate 0.7s ease-out, overlay 0.7s ease-out, display 0.7s ease-out allow-discrete;
+  translate: 0 -22rem;
+}
+
+/*   0. BEFORE-OPEN STATE   */
+@starting-style {
+  [popover]:popover-open {
+    translate: 0 -22rem;
+  }
+}
+</style>
+<style>
+  .dot {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    cursor: none;
+  }
+  </style>
+  <div id="m!" class="dot"><div class="nameFinder">
+    <h1 id="text">Loading…</h1>
+    <button onclick="document.cookie = 'name=;expires=' + new Date(0).toUTCString(); location.reload()">Change your name</button>
+    <script>
+        function name() {
+        t = prompt('What is your name?')
+        if (t !== null) {
+        setCookie('name', t)
+        }
+        if (getCookie('name') !== null) {
+          location.reload()
+        }
+    }
+    function setCookie(cname, cvalue) {
+        const d = new Date();
+        d.setTime(d.getTime() + (Infinity*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return null;
+      }
+    if (getCookie('name') == null) {
+        name()
+    } else {
+        document.getElementById("text").innerHTML = "Hi " + getCookie('name') + ' hehe HEHE HeHe hEhE :)'
+    }
+    </script>
+    </div></div>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEHV13Z5M9"></script>
@@ -14,53 +103,7 @@
 </script>
 <body>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlOvd_JPg1bvisdK1yYAveeLrl_nKaFfwr5l-ut48&amp;s" width="40" height="40" onclick="history.back()"><br>
-<style>
-    .dot {
-      height: 50px;
-      width: 50px;
-      background-color: red;
-      border-radius: 50%;
-      display: inline-block;
-      position: absolute;
-      cursor: none;
-    }
-    </style>
-    <div id="m!" class="dot"><div class="nameFinder">
-      <h1 id="text">Loading…</h1>
-      <button onclick="document.cookie = 'name=;expires=' + new Date(0).toUTCString(); location.reload()">Change your name</button>
-      <script>
-          function name() {
-          setCookie('name', prompt('What is your name?'))
-          location.reload()
-      }
-      function setCookie(cname, cvalue) {
-          const d = new Date();
-          d.setTime(d.getTime() + (Infinity*24*60*60*1000));
-          let expires = "expires="+ d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-      function getCookie(cname) {
-          let name = cname + "=";
-          let decodedCookie = decodeURIComponent(document.cookie);
-          let ca = decodedCookie.split(';');
-          for(let i = 0; i <ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-              c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-              return c.substring(name.length, c.length);
-            }
-          }
-          return null;
-        }
-      if (getCookie('name') == null) {
-          name()
-      } else {
-          document.getElementById("text").innerHTML = "Hi " + getCookie('name') + ' hehe HEHE HeHe hEhE :)'
-      }
-      </script>
-      </div></div>
+<p id="popover" popover=auto>Hehe, you can't change your name!<p></p>
 <script>
   let circle = document.getElementById('m!');
 const onMouseMove = (e) =>{
@@ -68,6 +111,15 @@ const onMouseMove = (e) =>{
   circle.style.top = e.pageY + 'px';
 }
 document.addEventListener('mousemove', onMouseMove);
+
+// Do stuff with popover
+popover = document.getElementById("popover")
+document.addEventListener('click', function(event) {
+    popover.showPopover()
+    setTimeout(function() {
+        popover.hidePopover()
+    }, 2000); // 2000 milliseconds = 2 seconds
+});
 </script>
 </html>
 </body>
