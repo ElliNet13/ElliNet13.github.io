@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-$(find . -type f -name *.html -exec bash -c printf <url><loc>https://ellinet13.github.io/./</loc></url>\n \;)
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./nyancat/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./bh_SUS/</loc></url>
+<url><loc>https://ellinet13.github.io/./popups/</loc></url>
+<url><loc>https://ellinet13.github.io/./popups/</loc></url>
+<url><loc>https://ellinet13.github.io/./chatgpt/</loc></url>
+<url><loc>https://ellinet13.github.io/./dtor/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./gmodLoad/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./imageview/</loc></url>
+<url><loc>https://ellinet13.github.io/./text-file/</loc></url>
+<url><loc>https://ellinet13.github.io/.
+./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./NextDNS/</loc></url>
+<url><loc>https://ellinet13.github.io/./search/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./CodeCellSandbox/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./youClicker/</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
+<url><loc>https://ellinet13.github.io/./</loc></url>
 </urlset>
