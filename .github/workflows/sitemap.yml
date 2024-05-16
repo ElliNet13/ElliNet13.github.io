@@ -16,10 +16,13 @@ jobs:
       
       - name: Generate sitemap
         run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>
-          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          $(find . -type f -name '*.html' -exec bash -c 'printf "<url><loc>https://ellinet13.github.io/$(dirname {})/</loc></url>\n"' \;)
-          </urlset>' > sitemap.xml
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          find . -type f -name '*.html' -exec bash -c 'printf "<url><loc>https://ellinet13.github.io/$(dirname {})/</loc></url>\n"' \; >> sitemap.xml
+          echo '</urlset>' >> sitemap.xml
+      
+      - name: Validate sitemap
+        run: xmllint --noout sitemap.xml
       
       - name: Commit sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
