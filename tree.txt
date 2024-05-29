@@ -1,6 +1,5 @@
 .
 ├── AI will never give you up.mp4
-├── Ads.txt
 ├── CSS tests.html
 ├── Chat.html
 ├── CodeCellSandbox
@@ -59,6 +58,7 @@
 │   ├── CodeEditor.svg
 │   └── ElliNet13.png
 ├── README.md
+├── ads.txt
 ├── bad.css
 ├── bh_SUS
 │   ├── bh_SUS.exr
