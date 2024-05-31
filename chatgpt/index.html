@@ -4,8 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free ChatGPT</title>
+  <style>
+    .banner {
+  background-color: #f0f0f0; /* Background color */
+  color: #333; /* Text color */
+  padding: 10px; /* Padding around the text */
+  text-align: center; /* Center the text */
+}
+
+.banner a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.banner a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+  </style>
 </head>
 <body>
+  <div class="banner">
+  <p>There is a new version of this page available <a href="/ai-chat">here</a>.</p>
+  </div>
   <label for="prompt">Enter your message to ChatGPT:</label><br>
   <input type="text" id="prompt"><br>
   <button onclick="sendUserInput()">Send</button><br>

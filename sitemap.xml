@@ -96,14 +96,19 @@
         <loc>https://ellinet13.github.io/nyancat</loc>
     </url>
 
-    <!-- Free ChatGPT -->
-    <url>
+    <!-- Free ChatGPT (old) -->
+    <!--<url>
         <loc>https://ellinet13.github.io/chatgpt</loc>
-    </url>
+    </url>-->
 
     <!-- Docs -->
     <url>
         <loc>https://ellinet13.github.io/docs</loc>
+    </url>
+
+    <!-- Chat with AI -->
+    <url>
+        <loc>https://ellinet13.github.io/ai-chat</loc>
     </url>
 
 </urlset>
