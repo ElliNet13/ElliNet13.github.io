@@ -133,6 +133,7 @@
 │   ├── stuff.json
 │   └── styles.css
 ├── sitemap.xml
+├── sitemap.xsl
 ├── spotify.html
 ├── styles.css
 ├── sw.js
@@ -147,4 +148,4 @@
 │   └── index.html
 └── youClicker.html
 
-19 directories, 128 files
+19 directories, 129 files
