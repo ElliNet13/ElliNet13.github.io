@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
     <xsl:output method="html" indent="yes"/>
+
+    <!-- Template to match the root element -->
     <xsl:template match="/">
         <html>
             <head>
@@ -8,65 +11,57 @@
                 <style>
                     body {
                         font-family: Arial, sans-serif;
-                        margin: 0;
-                        padding: 0;
-                        line-height: 1.6;
-                        background-color: #f4f4f4;
-                    }
-                    .container {
-                        width: 80%;
-                        margin: auto;
-                        overflow: hidden;
                     }
                     h1 {
-                        text-align: center;
-                        padding: 20px;
-                        background: #333;
-                        color: #fff;
+                        color: #2c3e50;
                     }
-                    ul {
-                        list-style: none;
-                        padding: 0;
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
                     }
-                    li {
-                        background: #fff;
-                        margin: 10px 0;
-                        padding: 10px;
-                        border: #ccc 1px solid;
-                        border-radius: 5px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    th, td {
+                        border: 1px solid #ddd;
+                        padding: 8px;
                     }
-                    a {
-                        text-decoration: none;
-                        color: #333;
-                        font-weight: bold;
+                    th {
+                        background-color: #f2f2f2;
+                        text-align: left;
                     }
-                    a:hover {
-                        color: #0066cc;
-                    }
-                    .comment {
-                        font-style: italic;
-                        color: #666;
+                    tr:hover {
+                        background-color: #f5f5f5;
                     }
                 </style>
             </head>
             <body>
-                <div class="container">
-                    <h1>Sitemap</h1>
-                    <ul>
-                        <xsl:for-each select="urlset/url">
-                            <li>
-                                <div class="comment">
-                                    <xsl:value-of select="substring-after(loc, 'https://ellinet13.github.io/')" />
-                                </div>
-                                <a href="{loc}">
-                                    <xsl:value-of select="loc" />
-                                </a>
-                            </li>
+                <h1>Site Sitemap</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Site Name</th>
+                            <th>Site Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Apply template for each <url> element -->
+                        <xsl:for-each select="//*[local-name()='url']">
+                            <tr>
+                                <!-- Site Name -->
+                                <xsl:variable name="siteName" select="*[local-name()='name']"/>
+                                <td>
+                                    <xsl:value-of select="$siteName"/>
+                                </td>
+                                <!-- Site Link -->
+                                <td>
+                                    <a href="{*[local-name()='loc']}">
+                                        <xsl:value-of select="*[local-name()='loc']"/>
+                                    </a>
+                                </td>
+                            </tr>
                         </xsl:for-each>
-                    </ul>
-                </div>
+                    </tbody>
+                </table>
             </body>
         </html>
     </xsl:template>
+
 </xsl:stylesheet>
