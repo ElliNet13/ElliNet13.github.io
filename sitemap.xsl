@@ -33,7 +33,7 @@
                 </style>
             </head>
             <body>
-                <h1>Site Sitemap</h1>
+                <h1>Sitemap</h1>
                 <table>
                     <thead>
                         <tr>
