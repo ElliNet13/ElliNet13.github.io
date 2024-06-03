@@ -43,7 +43,9 @@
 ├── ElliNet13sAwsomeFont
 │   ├── Ellinet13sAwesomeFont-Regular.otf
 │   └── Ellinet13sAwesomeFont-Regular.woff
-├── GitHubUserPage.html
+├── GitHubUserPage
+│   ├── index.html
+│   └── opensearch.xml
 ├── GunBlood.html
 ├── Javascript-Scratch-extension.js
 ├── Kill.html
@@ -142,10 +144,6 @@
 │   ├── indextml.html
 │   └── indexxt.txt
 ├── tree.txt
-├── youClicker
-│   ├── ElliNetLoginGoogleYouClicker.json
-│   ├── app.js
-│   └── index.html
 └── youClicker.html
 
-19 directories, 129 files
+19 directories, 127 files
