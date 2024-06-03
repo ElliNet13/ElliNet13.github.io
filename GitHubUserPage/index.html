@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>GitHub user finder</title>
+<link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub User Finder">
+</head>
+<form>
+    <input id="text" type="text" placeholder="GitHub user name"/>
+    <input type="button" onclick="gitHubUserPage()" value="Go to the GitHub user page"/>
+</form>
+<br>
+
+<button onclick="registerCustomProtocol()">Add as web+githubuser://</button>
+
+<script>
+    let user = document.getElementById("text")
+    if (get_mark('user') == null == false) {
+      user.value = get_mark('user')
+      gitHubUserPage()
+    }
+    
+    function registerCustomProtocol() {
+    if (navigator.registerProtocolHandler) {
+        try {
+            navigator.registerProtocolHandler('web+githubuser', 'https://ellinet13.github.io/GitHubUserPage?user=%s', 'Get a Github user profile');
+            alert('Custom protocol handler registered successfully!');
+        } catch (error) {
+            alert('Error registering custom protocol handler: ' + error.message);
+        }
+    } else {
+        alert('Custom protocol registration not supported in this browser.');
+    }
+}
+    
+    function gitHubUserPage() {
+        (async () => {
+  const res = await fetch(`https://api.github.com/users/` + user.value);
+  const json = await res.json();
+  let userPage = json.html_url;
+  if (userPage) {
+    window.location = userPage
+  } else {
+    console.error('The user cannot be found')
+  }
+})();
+    }
+    function get_mark(var_name) {
+var objUrlParams = new URLSearchParams(window.location.search);
+try{
+var theVar = objUrlParams.get(var_name)
+} catch(err) {
+    return(null)
+}
+return(theVar);
+}
+</script>
