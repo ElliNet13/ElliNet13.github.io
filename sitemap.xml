@@ -111,5 +111,9 @@
         <name>Userscripts</name>
         <loc>https://ellinet13.github.io/userscripts</loc>
     </url>
+    <url>
+        <name>ElliNet13's Search Engine</name>
+        <loc>https://ellinet13.github.io/search</loc>
+    </url>
 
 </urlset>
