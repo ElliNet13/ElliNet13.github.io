@@ -115,5 +115,9 @@
         <name>ElliNet13's Search Engine</name>
         <loc>https://ellinet13.github.io/search</loc>
     </url>
+    <url>
+        <name>Google Sheets Games/Tools</name>
+        <loc>https://ellinet13.github.io/sheets</loc>
+    </url>
 
 </urlset>
