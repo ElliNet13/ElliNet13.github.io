@@ -77,7 +77,6 @@
 │   └── script.js
 ├── corn.html
 ├── da210f6e22b2440f9f52bdfa978f132c.txt
-├── disavator.html
 ├── drum.html
 ├── dtor
 │   └── index.html
@@ -155,4 +154,4 @@
 ├── tree.txt
 └── youClicker.html
 
-20 directories, 135 files
+20 directories, 134 files
