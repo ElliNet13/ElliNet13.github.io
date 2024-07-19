@@ -2,42 +2,6 @@
 ├── AI will never give you up.mp4
 ├── CSS tests.html
 ├── Chat.html
-├── CodeCellSandbox
-│   ├── LICENSE
-│   ├── assets
-│   │   └── cellpond-og-image.png
-│   ├── examples
-│   │   ├── bouncing-rocket.json
-│   │   ├── evil-brush.json
-│   │   ├── evil-lightning.json
-│   │   ├── fader.json
-│   │   ├── fractal.json
-│   │   ├── future-of-code-demo
-│   │   │   ├── 01-basic-sandbox.json
-│   │   │   ├── 02-basic-gloop.json
-│   │   │   ├── 03-edit-fader.json
-│   │   │   ├── 04-edit-evil-brush.json
-│   │   │   ├── 05-edit-evil-lightning.json
-│   │   │   ├── 06-split-splitter.json
-│   │   │   ├── 07-split-bouncing-rocket.json
-│   │   │   ├── 08-split-fractal.json
-│   │   │   ├── 09-end-huegene.json
-│   │   │   └── space.tldr
-│   │   ├── gloop.json
-│   │   ├── huegene.json
-│   │   ├── pink-sand.json
-│   │   ├── resolution-booster.json
-│   │   ├── sandbox.json
-│   │   ├── slime-brush.json
-│   │   ├── space-warp.json
-│   │   └── splitter.json
-│   ├── index.html
-│   ├── libraries
-│   │   ├── colour.js
-│   │   ├── habitat-embed.js
-│   │   ├── linked-list.js
-│   │   └── show.js
-│   └── main.js
 ├── ElliNet13-Resized.png
 ├── ElliNet13.jpeg
 ├── ElliNet13sAwsomeFont
@@ -154,4 +118,4 @@
 ├── tree.txt
 └── youClicker.html
 
-20 directories, 134 files
+15 directories, 103 files
