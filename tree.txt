@@ -12,7 +12,6 @@
 │   └── opensearch.xml
 ├── GunBlood.html
 ├── Javascript-Scratch-extension.js
-├── Kill.html
 ├── Loading.html
 ├── M.m4a
 ├── NextDNS
@@ -118,4 +117,4 @@
 ├── tree.txt
 └── youClicker.html
 
-15 directories, 103 files
+15 directories, 102 files
