@@ -116,5 +116,13 @@
         <name>Camera Feed</name>
         <loc>https://ellinet13.github.io/cam</loc>
     </url>
+    <url>
+        <name>ElliNet13's Astro Site</name>
+        <loc>https://ellinet13.github.io/astro</loc>
+    </url>
+    <url>
+        <name>ElliNet13's Site Links</name>
+        <loc>https://ellinet13.github.io/astro/mysite</loc>
+    </url>
 
 </urlset>
