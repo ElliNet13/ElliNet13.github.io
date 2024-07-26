@@ -63,3 +63,31 @@
         await startStream(videoDevices[0].deviceId);
     }
 })();
+
+const takePhotoButton = document.getElementById('takePhotoButton');
+
+takePhotoButton.addEventListener('click', async () => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const photo = canvas.toDataURL('image/png');
+    downloadDataUrl(photo, 'photo.png');
+});
+
+/**
+ * Downloads a data URL as a file with the given name.
+ *
+ * @param {string} dataUrl - The data URL to download.
+ * @param {string} fileName - The name of the file to save.
+ */
+function downloadDataUrl(dataUrl, fileName) {
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = fileName;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
