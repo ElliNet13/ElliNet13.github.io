@@ -51,7 +51,6 @@
 ├── error.html
 ├── errori.png
 ├── favicon.ico
-├── files.html
 ├── gmodLoad
 │   ├── ElliNet13.jpeg
 │   ├── index.html
@@ -103,6 +102,7 @@
 │   ├── search.js
 │   ├── stuff.json
 │   └── styles.css
+├── sfiles.html
 ├── sheets
 │   ├── index.html
 │   ├── link.js
