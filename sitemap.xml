@@ -120,5 +120,8 @@
         <name>ElliNet13's Site Links</name>
         <loc>https://ellinet13.github.io/astro/mysite/</loc>
     </url>
-
+    <url>
+        <name>Random Text File Generator</name>
+        <loc>https://ellinet13.github.io/rtxt/</loc>
+    </url>
 </urlset>
