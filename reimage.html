@@ -35,7 +35,7 @@
 
             // Use puter.ai.chat to get a highly detailed description for image generation
             const resp = await puter.ai.chat(
-              "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide.",
+              "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide. It prompt/responce must be length 1000 or less or tjis will not work and make an error and that is bad for the experience of the user.",
               imageBlobUrl,
               { stream: true }
             );
