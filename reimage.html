@@ -1,0 +1,67 @@
+<html>
+  <body>
+    <script src="https://js.puter.com/v2/"></script>
+    <title>Reimage</title>
+
+    <!-- Input for uploading an image -->
+    <input
+      type="file"
+      id="imageUpload"
+      accept="image/*"
+      style="display: block"
+    />
+
+    <!-- Display the uploaded image -->
+    <img id="uploadedImage" style="display: none" />
+
+    <script>
+      const imageInput = document.getElementById("imageUpload");
+      const imageElement = document.getElementById("uploadedImage");
+
+      imageInput.addEventListener("change", async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          // Create a Blob URL from the uploaded file
+          const blobUrl = URL.createObjectURL(file);
+
+          // Display the uploaded image
+          imageElement.src = blobUrl;
+          imageElement.style.display = "block";
+
+          // Read the Blob and turn it into a URL
+          const fileReader = new FileReader();
+          fileReader.onloadend = async () => {
+            const imageBlobUrl = fileReader.result;
+
+            // Use puter.ai.chat to get a highly detailed description for image generation
+            const resp = await puter.ai.chat(
+              "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide.",
+              imageBlobUrl,
+              { stream: true }
+            );
+
+            // Capture the entire description
+            let description = "";
+            for await (const part of resp) {
+              // Print each streamed part of the description
+              puter.print(part?.text?.replaceAll("\n", "<br>"));
+
+              // Append each part to the full description
+              description += part?.text;
+            }
+
+            puter.print("..Making new image...");
+
+            // Once the description is fully received, generate the new image using .then()
+            puter.ai.txt2img(description).then((image) => {
+              document.body.appendChild(image); // Append the generated image to the document
+            });
+          };
+
+          // Read the file as a Data URL (Blob)
+          fileReader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>
