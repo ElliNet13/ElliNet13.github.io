@@ -13,10 +13,16 @@
 
     <!-- Display the uploaded image -->
     <img id="uploadedImage" style="display: none" />
+    <p id="description"></p>
 
     <script>
       const imageInput = document.getElementById("imageUpload");
       const imageElement = document.getElementById("uploadedImage");
+      const descriptionText = document.getElementById("description");
+
+      function dprint(text) {
+        descriptionText.textContent += text
+      }
 
       imageInput.addEventListener("change", async (event) => {
         const file = event.target.files[0];
@@ -44,13 +50,20 @@
             let description = "";
             for await (const part of resp) {
               // Print each streamed part of the description
-              puter.print(part?.text?.replaceAll("\n", "<br>"));
+              dprint(part?.text?.replaceAll("\n", "<br>"));
 
               // Append each part to the full description
               description += part?.text;
             }
 
-            puter.print("..Reimageing...");
+            dprint("..Reimageing...");
+            
+            description = description.substring(0, 1000)
+            descriptionText.textContent = description.replaceAll("\n", "<br>")
+
+            puter.ai.txt2speech(description).then((audio)=>{
+                audio.play();
+            });
 
             // Once the description is fully received, generate the new image using .then()
             puter.ai.txt2img(description).then((image) => {
