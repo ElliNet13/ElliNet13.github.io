@@ -59,7 +59,7 @@
             dprint("..Reimageing...");
             
             description = description.substring(0, 1000)
-            descriptionText.textContent = description.replaceAll("\n", "<br>")
+            descriptionText.innerHTML = description.replaceAll("\n", "<br>")
 
             puter.ai.txt2speech(description).then((audio)=>{
                 audio.play();
