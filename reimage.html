@@ -1,8 +1,11 @@
 <html>
-  <body>
+  <head>
     <script src="https://js.puter.com/v2/"></script>
     <title>Reimage</title>
-
+  </head>
+  <body>
+    <button id="reloadButton" onclick="location.reload()" style="display: none">Reload Page</button>
+    
     <!-- Input for uploading an image -->
     <input
       type="file"
@@ -19,12 +22,17 @@
       const imageInput = document.getElementById("imageUpload");
       const imageElement = document.getElementById("uploadedImage");
       const descriptionText = document.getElementById("description");
+      const imageUpload = document.getElementById("imageUpload");
+      const reloadButton = document.getElementById("reloadButton");
 
       function dprint(text) {
         descriptionText.textContent += text
       }
 
       imageInput.addEventListener("change", async (event) => {
+        imageUpload.style.display = 'none';
+        reloadButton.style.display = '';
+        
         const file = event.target.files[0];
         if (file) {
           // Create a Blob URL from the uploaded file
