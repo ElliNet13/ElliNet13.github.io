@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script src="https://js.puter.com/v2/"></script>
+  <head>
     <title>Reimage</title>
-
+    <script src="https://js.puter.com/v2/" onerror="console.error('Failed to load puter script')"></script>
+  </head>
+  <body>
     <!-- Input for uploading an image -->
     <input
       type="file"
@@ -24,59 +26,75 @@
 
       function checkAppInstanceID() {
         if (typeof puter !== 'undefined' && typeof puter.appInstanceID !== 'undefined') {
-          document.getElementById("puter").style.display = ''
+          document.getElementById("puter").style.display = 'block';
         } else {
-          imageInput.style.display = 'block'
+          imageInput.style.display = 'block';
         }
       }
 
       function dprint(text) {
-        descriptionText.textContent += text
+        descriptionText.innerHTML += text + "<br>";
       }
 
       function puterProcess() {
-        puter.ui.showOpenFilePicker().then(async (file)=>{
+        puter.ui.showOpenFilePicker().then(async (file) => {
+          const mimeType = 'text/plain';  // Adjust MIME type accordingly
+          const blob = new Blob([await (await file.read()).text()], { type: mimeType });
 
-                const mimeType = 'text/plain';  // Adjust MIME type accordingly
-const blob = new Blob([await (await file.read()).text()], { type: mimeType });
-
-// Generate a URL for the Blob object
-const blobUrl = URL.createObjectURL(blob);
-reimageAuto(blobUrl)
-            });
+          // Generate a URL for the Blob object
+          const blobUrl = URL.createObjectURL(blob);
+          reimageAuto(blobUrl);
+        }).catch(error => {
+          console.error('Error opening file picker:', error);
+        });
       }
 
       async function reimageAuto(url) {
-            // Use puter.ai.chat to get a highly detailed description for image generation
-            const resp = await puter.ai.chat(
-              "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide.",
-              imageBlobUrl,
-              { stream: true }
-            );
+        try {
+          // Use puter.ai.chat to get a highly detailed description for image generation
+          const resp = await puter.ai.chat(
+            "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide.",
+            url,
+            { stream: true }
+          );
 
-            // Capture the entire description
-            let description = "";
-            for await (const part of resp) {
-              // Print each streamed part of the description
-              dprint(part?.text?.replaceAll("\n", "<br>"));
+          // Capture the entire description
+          let description = "";
+          for await (const part of resp) {
+            // Print each streamed part of the description
+            dprint(part?.text?.replaceAll("\n", "<br>"));
 
-              // Append each part to the full description
-              description += part?.text;
+            // Append each part to the full description
+            description += part?.text;
+          }
+
+          dprint("..Reimaging...");
+
+          description = description.substring(0, 1000);
+          descriptionText.innerHTML = description.replaceAll("\n", "<br>");
+
+          puter.ai.txt2speech(description).then((audio) => {
+            audio.play();
+          }).catch(error => {
+            console.error('Error with txt2speech:', error);
+          });
+
+          // Once the description is fully received, generate the new image using .then()
+          puter.ai.txt2img(description).then((image) => {
+            if (image && image.src) {
+              imageElement.src = image.src;
+              imageElement.style.display = "block";
+            } else {
+              console.error('Invalid image returned from txt2img');
             }
+          }).catch(error => {
+            console.error('Error with txt2img:', error);
+          });
 
-            dprint("..Reimageing...");
-            
-            description = description.substring(0, 1000)
-            descriptionText.innerHTML = description.replaceAll("\n", "<br>")
-
-            puter.ai.txt2speech(description).then((audio)=>{
-                audio.play();
-            });
-
-            // Once the description is fully received, generate the new image using .then()
-            puter.ai.txt2img(description).then((image) => {
-              document.body.appendChild(image); // Append the generated image to the document
-            });}
+        } catch (error) {
+          console.error('Error in reimageAuto:', error);
+        }
+      }
 
       imageInput.addEventListener("change", async (event) => {
         const file = event.target.files[0];
@@ -91,13 +109,16 @@ reimageAuto(blobUrl)
           // Read the Blob and turn it into a URL
           const fileReader = new FileReader();
           fileReader.onloadend = async () => {
-            reimageAuto(fileReader.result)
+            reimageAuto(fileReader.result);
           };
 
           // Read the file as a Data URL (Blob)
           fileReader.readAsDataURL(file);
         }
       });
+
+      // Call checkAppInstanceID when the DOM is fully loaded
+      document.addEventListener("DOMContentLoaded", checkAppInstanceID);
     </script>
   </body>
 </html>
