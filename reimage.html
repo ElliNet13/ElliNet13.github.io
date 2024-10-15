@@ -1,18 +1,17 @@
 <html>
-  <head>
+  <body>
     <script src="https://js.puter.com/v2/"></script>
     <title>Reimage</title>
-  </head>
-  <body>
-    <button id="reloadButton" onclick="location.reload()" style="display: none">Reload Page</button>
-    
+
     <!-- Input for uploading an image -->
     <input
       type="file"
       id="imageUpload"
       accept="image/*"
-      style="display: block"
+      style="display: none"
     />
+
+    <button id="puter" style="display: none" onclick="puterProcess()">Open image</button>
 
     <!-- Display the uploaded image -->
     <img id="uploadedImage" style="display: none" />
@@ -22,31 +21,32 @@
       const imageInput = document.getElementById("imageUpload");
       const imageElement = document.getElementById("uploadedImage");
       const descriptionText = document.getElementById("description");
-      const imageUpload = document.getElementById("imageUpload");
-      const reloadButton = document.getElementById("reloadButton");
+
+      function checkAppInstanceID() {
+        if (typeof puter !== 'undefined' && typeof puter.appInstanceID !== 'undefined') {
+          document.getElementById("puter").style.display = ''
+        } else {
+          imageInput.style.display = 'block'
+        }
+      }
 
       function dprint(text) {
         descriptionText.textContent += text
       }
 
-      imageInput.addEventListener("change", async (event) => {
-        imageUpload.style.display = 'none';
-        reloadButton.style.display = '';
-        
-        const file = event.target.files[0];
-        if (file) {
-          // Create a Blob URL from the uploaded file
-          const blobUrl = URL.createObjectURL(file);
+      function puterProcess() {
+        puter.ui.showOpenFilePicker().then(async (file)=>{
 
-          // Display the uploaded image
-          imageElement.src = blobUrl;
-          imageElement.style.display = "block";
+                const mimeType = 'text/plain';  // Adjust MIME type accordingly
+const blob = new Blob([await (await file.read()).text()], { type: mimeType });
 
-          // Read the Blob and turn it into a URL
-          const fileReader = new FileReader();
-          fileReader.onloadend = async () => {
-            const imageBlobUrl = fileReader.result;
+// Generate a URL for the Blob object
+const blobUrl = URL.createObjectURL(blob);
+reimageAuto(blobUrl)
+            });
+      }
 
+      async function reimageAuto(url) {
             // Use puter.ai.chat to get a highly detailed description for image generation
             const resp = await puter.ai.chat(
               "You are in a reimaging app. Please describe the uploaded image in as much detail as possible, because this description will be used to regenerate the image with all the details you provide.",
@@ -76,7 +76,22 @@
             // Once the description is fully received, generate the new image using .then()
             puter.ai.txt2img(description).then((image) => {
               document.body.appendChild(image); // Append the generated image to the document
-            });
+            });}
+
+      imageInput.addEventListener("change", async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          // Create a Blob URL from the uploaded file
+          const blobUrl = URL.createObjectURL(file);
+
+          // Display the uploaded image
+          imageElement.src = blobUrl;
+          imageElement.style.display = "block";
+
+          // Read the Blob and turn it into a URL
+          const fileReader = new FileReader();
+          fileReader.onloadend = async () => {
+            reimageAuto(fileReader.result)
           };
 
           // Read the file as a Data URL (Blob)
