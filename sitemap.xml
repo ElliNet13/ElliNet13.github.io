@@ -45,12 +45,6 @@
     </url>
 
     <url>
-        <name>Gun Blood</name>
-        <loc>https://ellinet13.github.io/GunBlood/</loc>
-        <!-- A page showing a game called Gun Blood -->
-    </url>
-
-    <url>
         <name>Find GitHub user</name>
         <loc>https://ellinet13.github.io/GitHubUserPage/</loc>
         <!-- A tool for finding GitHub users -->
