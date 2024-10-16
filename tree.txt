@@ -10,7 +10,6 @@
 ├── GitHubUserPage
 │   ├── index.html
 │   └── opensearch.xml
-├── GunBlood.html
 ├── Javascript-Scratch-extension.js
 ├── Loading.html
 ├── M.m4a
@@ -56,7 +55,6 @@
 │   ├── index.html
 │   ├── script.js
 │   └── styles.css
-├── gunblood.swf
 ├── hehe.html
 ├── hex.html
 ├── html.html
@@ -104,7 +102,6 @@
 │   │   └── project.json
 │   ├── index.html
 │   └── script.js
-├── ruffle.swf
 ├── search
 │   ├── index.html
 │   ├── link.js
@@ -130,4 +127,4 @@
 ├── tree.txt
 └── youClicker.html
 
-19 directories, 112 files
+19 directories, 109 files
