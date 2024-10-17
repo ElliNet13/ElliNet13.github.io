@@ -1,4 +1,4 @@
-const startMessages = [{role:"system", content:"Your knowledge was cut off in 2022."}, {role:"system", content:"You can not use markdown as your messages are interpreted as plain text."}];
+const startMessages = [{role:"system", content:"Your knowledge was cut off in 2022. Also warn the user in every message that this is not the recommended page and they should use https://ellinet13.github.io/ai-chat/ it has many tools and themes."}, {role:"system", content:"You can not use markdown as your messages are interpreted as plain text."}];
 let messages = startMessages;
 
 window.addEventListener('unhandledrejection', function(event) {
