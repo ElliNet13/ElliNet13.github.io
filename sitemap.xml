@@ -157,4 +157,10 @@
         <loc>https://ellinet13.github.io/reimage/</loc>
         <!-- Reimage will take an image and use AI to remake the image -->
     </url>
+
+    <url>
+        <name>Talk to AI via voice</name>
+        <loc>https://ellinet13.github.io/ai-chat-voice/</loc>
+        <!-- Talk to AI via voice -->
+    </url>
 </urlset>
