@@ -23,6 +23,16 @@
 │   └── ElliNet13.png
 ├── README.md
 ├── ads.txt
+├── ai-chat-voice
+│   ├── assets
+│   │   ├── 5b73288870daaad0dfaea74feb7b0ed5.svg
+│   │   ├── 8b5454ef1f1618fb3ccc39be84009c7f.svg
+│   │   ├── bb12b2d1dfed7e85512433e7ddd24fcb.svg
+│   │   ├── cd21514d0531fdffb22204e0ec5ed84a.svg
+│   │   ├── e140d7ff07de8fa35c3d1595bba835ac.wav
+│   │   └── project.json
+│   ├── index.html
+│   └── script.js
 ├── bad.css
 ├── bb-code.js
 ├── bb-code.min.js
@@ -127,4 +137,4 @@
 ├── tree.txt
 └── youClicker.html
 
-18 directories, 109 files
+20 directories, 117 files
