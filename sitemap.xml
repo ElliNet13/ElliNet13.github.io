@@ -163,4 +163,10 @@
         <loc>https://ellinet13.github.io/ai-chat-voice/</loc>
         <!-- Talk to AI via voice -->
     </url>
+
+    <url>
+        <name>Run OSes in your browser</name>
+        <loc>https://ellinet13.github.io/OSes/</loc>
+        <!-- Talk to AI via voice -->
+    </url>
 </urlset>
