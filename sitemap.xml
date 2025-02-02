@@ -167,6 +167,11 @@
     <url>
         <name>Run OSes in your browser</name>
         <loc>https://ellinet13.github.io/OSes/</loc>
-        <!-- Talk to AI via voice -->
+        <!-- OSes -->
+    </url>
+        <url>
+        <name>Write some HTML and replace the page with it</name>
+        <loc>https://ellinet13.github.io/replace/</loc>
+        <!-- Write some HTML and replace the page with it -->
     </url>
 </urlset>
