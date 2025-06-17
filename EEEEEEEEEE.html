@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinite E Scroll (Fast Scroll Fix)</title>
+  <style>
+    body {
+      font-family: monospace;
+      font-size: 48px;
+      white-space: pre-wrap;
+    }
+    #sentinel {
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content">
+  E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
+</div>
+
+<div id="sentinel"></div>
+
+<!-- IntersectionObserver Polyfill for Safari/old browsers -->
+<script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.js"></script>
+
+<script>
+  const content = document.getElementById('content');
+  const sentinel = document.getElementById('sentinel');
+
+  // Function to add a LOT of E's
+  function addEs(times = 5) { // add 5 chunks each time for fast scrollers
+    const chunk = ' E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E';
+    for (let i = 0; i < times; i++) {
+      content.textContent += chunk;
+    }
+  }
+
+  // Initial fill so the page isn't too empty
+  addEs(10);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        addEs(5); // Add 5 chunks when near the bottom
+      }
+    });
+  });
+
+  observer.observe(sentinel);
+</script>
+
+</body>
+</html>
