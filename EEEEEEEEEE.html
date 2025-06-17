@@ -8,9 +8,10 @@
       font-family: monospace;
       font-size: 48px;
       white-space: pre-wrap;
+      margin: 0;
     }
     #sentinel {
-      height: 50px;
+      height: 100px; /* Easier to detect near-end */
     }
   </style>
 </head>
@@ -22,33 +23,34 @@
 
 <div id="sentinel"></div>
 
-<!-- IntersectionObserver Polyfill for Safari/old browsers -->
-<script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.js"></script>
-
 <script>
   const content = document.getElementById('content');
   const sentinel = document.getElementById('sentinel');
 
-  // Function to add a LOT of E's
-  function addEs(times = 5) { // add 5 chunks each time for fast scrollers
+  function addEs(times = 5) {
     const chunk = ' E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E';
     for (let i = 0; i < times; i++) {
       content.textContent += chunk;
     }
   }
 
-  // Initial fill so the page isn't too empty
-  addEs(10);
+  // Fill the page at the start
+  addEs(20);
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        addEs(5); // Add 5 chunks when near the bottom
-      }
-    });
-  });
+  function checkScroll() {
+    const sentinelRect = sentinel.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-  observer.observe(sentinel);
+    // If sentinel is within 300px of the bottom, add more Es
+    if (sentinelRect.top < viewportHeight + 300) {
+      addEs(5);
+    }
+
+    requestAnimationFrame(checkScroll); // Keep looping
+  }
+
+  // Start checking forever
+  requestAnimationFrame(checkScroll);
 </script>
 
 </body>
