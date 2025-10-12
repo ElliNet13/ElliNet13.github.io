@@ -6,7 +6,6 @@
 <h3 id="Clicks">Clicks</h3>
 <button id="Button" onclick="upgrade()">Upgrade You need 150</button>
 </center>
-<a href="javascript:dab()">Dab on pugs</a>
 <script>
     var clicks = document.getElementById("Clicks")
     var WOW = 0;    var ClickIt = 1; var need = 150; var rebirths = 0;
@@ -27,19 +26,7 @@
         Click()
         }
     }
-        function dab() {
-    WOW = 0
-    click = 0
-    youNeedIt = 0
-    save()
-    window.location = "/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD BOY&url=/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD BOY&url=/error?error=YOU JUST    YOU>>>>>>>>>YOU&url=/error?error=BAD&url=/error?No more"
-    }
-    function setCookie(cname, cvalue) {
-    const d = new Date();
-    d.setTime(d.getTime() + (Infinity*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
+        
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
