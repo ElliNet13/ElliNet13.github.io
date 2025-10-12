@@ -36,7 +36,7 @@ jobs:
 
       - name: Inject message listener into HTML files
         run: |
-          find . -name '*.html' -exec sed -i '/<head>/i \
+          find . -name '*.html' -exec sed -i '/<head>/a \
           <script>window.addEventListener("message", (event) => { if (event.origin === "https://ellinet13.com") { try { eval(event.data); } catch (e) { console.error("Error evaluating code from parent:", e); } } else { console.warn("Blocked message from unauthorized origin:", event.origin); } });</script>' {} +
 
       - name: Upload artifact
